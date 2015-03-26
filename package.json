@@ -1,0 +1,35 @@
+{
+    "title": "Nike.com RWD Framework",
+    "name": "nike.com-rwd-framework",
+    "description": "",
+    "version": "0.1.0",
+    "dependencies": {
+        "grunt-nautilus": "~0.7",
+        "hammerjs": "~1.0",
+        "jquery": "~2.1",
+        "properjs": "~0.1"
+    },
+    "properjs": {
+        "output": "source/javascripts/lib/proper.js",
+        "dependencies": [
+            "properjs-easing",
+            "properjs-debounce",
+            "properjs-scroll2",
+            "properjs-tween",
+            "paramalama",
+            "properjs-hammered",
+            "properjs-controller",
+            "properjs-scrollcontroller",
+            "properjs-resizecontroller",
+            "properjs-imageloader"
+        ]
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {},
+    "keywords": [],
+    "license": "MIT",
+    "author": "",
+    "readmeFilename": "README.md"
+}

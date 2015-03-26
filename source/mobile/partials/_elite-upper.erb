@@ -1,0 +1,103 @@
+<!-- Carousel -->
+<div class="carousel js-carousel">
+    <ul class="carousel__collection js-carousel-collection js-resize" data-resize="p1--mobile">
+        <li class="carousel__collection__item js-carousel-collection-item js-lazy-image -cover -cover--bottom" data-img-src="../images/elite/elite-view-1.jpg"></li>
+        <li class="carousel__collection__item js-carousel-collection-item js-lazy-image -cover -cover--bottom" data-img-src="../images/elite/elite-view-2.jpg"></li>
+        <li class="carousel__collection__item js-carousel-collection-item js-lazy-image -cover -cover--bottom" data-img-src="../images/elite/elite-view-3.jpg"></li>
+        <li class="carousel__collection__item js-carousel-collection-item js-lazy-image -cover -cover--bottom" data-img-src="../images/elite/elite-view-4.jpg"></li>
+        <li class="carousel__collection__item js-carousel-collection-item js-lazy-image -cover -cover--bottom" data-img-src="../images/elite/elite-view-5.jpg"></li>
+        <li class="carousel__collection__item js-carousel-collection-item js-lazy-image -cover -cover--bottom" data-img-src="../images/elite/elite-view-6.jpg"></li>
+    </ul>
+    <ul class="carousel__indicators carousel__indicators--thumbed js-carousel-indicators">
+        <li class="carousel__indicators__item js-carousel-indicator-item"></li>
+        <li class="carousel__indicators__item js-carousel-indicator-item"></li>
+        <li class="carousel__indicators__item js-carousel-indicator-item"></li>
+        <li class="carousel__indicators__item js-carousel-indicator-item"></li>
+        <li class="carousel__indicators__item js-carousel-indicator-item"></li>
+        <li class="carousel__indicators__item js-carousel-indicator-item"></li>
+    </ul>
+    <div class="carousel__thumbnails-wrapper -overtouch">
+        <ul class="carousel__thumbnails js-carousel-thumbnails js-resize" data-resize="belt">
+            <li class="carousel__thumbnails__item js-lazy-image -cover -cover--top" data-img-src="../images/elite/elite-thumb-1.jpg"></li>
+            <li class="carousel__thumbnails__item js-lazy-image -cover -cover--top" data-img-src="../images/elite/elite-thumb-2.jpg"></li>
+            <li class="carousel__thumbnails__item js-lazy-image -cover -cover--top" data-img-src="../images/elite/elite-thumb-3.jpg"></li>
+            <li class="carousel__thumbnails__item js-lazy-image -cover -cover--top" data-img-src="../images/elite/elite-thumb-4.jpg"></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Colorway -->
+<section class="padding-top--30 -text--center">
+    <div class="p p--detail">Volt/Black/White/Hyper Punch</div>
+</section>
+
+<!-- Description -->
+<section class="padding-left--30 padding-right--30 padding-top--40 padding-bottom--10 -text--center">
+    <div class="h1 margin-bottom--20">Light and responsive to take you far, fast</div>
+    <div class="p">The lightweight Nike Air Zoom Elite 7 was designed for fast-paced training, with a lower offset than its predecessor for a more natural stride.</div>
+</section>
+
+<!-- Buy options -->
+<% if current_page.data.model == "tabbed" || current_page.data.model == "rollup" %>
+    <section class="padding--30">
+        <div class="margin-bottom--20 -border -clear">
+            <div class="col col--2of4 -border--right">
+                <div class="button button--light-dark js-slide-controller" data-target=".js-slide--size"><span>Size</span><span class="margin-left--5 js-slide-value" data-onvalue="parens"></span></div>
+            </div>
+            <div class="col col--2of4">
+                <div class="button button--light-dark js-slide-controller" data-target=".js-slide--qty"><span>Qty</span><span class="margin-left--5 parens js-slide-value" data-onvalue="parens" data-emit="update-qty">1</span></div>
+            </div>
+        </div>
+        <div class="button button--light-dark margin-bottom--20 -border"><span>Personalize</span><span class="margin-left--5 parens">+$20</span></div>
+        <div class="button js-notify" data-notification="Added to Cart"><span>Add to Cart</span><span class="margin-left--5 currency js-pdp-value">110</span></div>
+    </section>
+<% end %>
+<% if current_page.data.model == "doorway" %>
+    <section class="padding--30">
+        <div class="margin-bottom--20 -border -clear">
+            <div class="col col--2of4 -border--right">
+                <div class="button button--light-dark js-slide-controller" data-target=".js-slide--size"><span>Size</span><span class="margin-left--5 js-slide-value" data-onvalue="parens"></span></div>
+            </div>
+            <div class="col col--2of4">
+                <div class="button button--light-dark js-slide-controller" data-target=".js-slide--qty"><span>Qty</span><span class="margin-left--5 parens js-slide-value" data-onvalue="parens" data-emit="update-qty">1</span></div>
+            </div>
+        </div>
+        <div class="button button--light-dark margin-bottom--20 -border js-modal-controller" data-target=".js-modal--personalize"><span>Personalize</span><span class="margin-left--5 parens">+$20</span></div>
+        <div class="button js-notify" data-notification="Added to Cart"><span>Add to Cart</span><span class="margin-left--5 currency js-pdp-value">110</span></div>
+    </section>
+<% end %>
+<% if current_page.data.model == "fixed" %>
+    <section class="padding--30 js-buy-options">
+        <div class="margin-bottom--20 -border -clear">
+            <div class="col col--2of4 -border--right">
+                <div class="button button--light-dark js-slide-controller" data-target=".js-slide--size"><span>Size</span><span class="margin-left--5 js-slide-value" data-onvalue="parens"></span></div>
+            </div>
+            <div class="col col--2of4">
+                <div class="button button--light-dark js-slide-controller" data-target=".js-slide--qty"><span>Qty</span><span class="margin-left--5 parens js-slide-value" data-onvalue="parens" data-emit="update-qty">1</span></div>
+            </div>
+        </div>
+        <div class="button button--light-dark -border"><span>Personalize</span><span class="margin-left--5 parens">+$20</span></div>
+    </section>
+    <div class="layer--999 bottom--0 left--0 right--0 -position--fixed -border--top -border-color--333 js-buy-button" data-target=".js-buy-options">
+        <div class="button js-notify" data-notification="Added to Cart"><span>Buy</span><span class="margin-left--5 currency js-pdp-value">110</span></div>
+    </div>
+<% end %>
+
+<!-- Shipping -->
+<section class="-text--center">
+    <div class="p p--detail"><span class="icon icon--checkmark -font--6"></span> Free shipping on orders of 75+<div><a class="a a--inline" href="#">Register</a> for free returns</div></div>
+</section>
+
+<!-- Social -->
+<section class="padding-top--10 padding-bottom--10 -clear">
+    <div class="col col--2of4">
+        <div class="button button--light-clean -text--right js-heart">
+            <span class="icon icon--heart -font--20"></span>
+        </div>
+    </div>
+    <div class="col col--2of4">
+        <div class="button button--light-clean -text--left">
+            <span class="icon icon--share -font--20"></span>
+        </div>
+    </div>
+</section>

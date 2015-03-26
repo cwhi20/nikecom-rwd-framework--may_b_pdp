@@ -1,0 +1,245 @@
+.is-hidden {
+    display: none;
+    }
+
+.is-spinning > .icon {
+    visibility: hidden;
+    }
+
+.span {
+    display: inline-block;
+    vertical-align: middle;
+    }
+
+.caps {
+    text-transform: capitalize;
+    }
+
+.reminder {
+    background-color: $color_accent;
+    padding: 1px 8px;
+    position: relative;
+
+    &:before {
+        display: inline-block;
+        border-bottom: 3px solid transparent;
+        border-right: 3px solid $color_accent;
+        border-right-color: $color_accent;
+        border-top: 3px solid transparent;
+        content: "";
+        height: 0;
+        left: 0;
+        margin-top: -3px;
+        margin-left: -3px;
+        position: absolute;
+        top: 50%;
+        width: 0;
+        }
+    }
+
+.grey {
+    color: $color_text_grey;
+    }
+.accent {
+    color: $color_accent;
+    }
+
+.valigner {
+    display: table;
+    height: 100%;
+    width: 100%;
+    }
+.valigner__cell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    }
+
+.list {}
+.list--inline {
+    @include inline-parent();
+    }
+.list--inline__item {
+    @include inline-child();
+    position: relative;
+    }
+.disc {
+    padding-left: 15px;
+    position: relative;
+
+    &:before {
+        background-color: $color_dark;
+        border-radius: 6px;
+        content: "";
+        height: 6px;
+        left: 0;
+        position: absolute;
+        top: 8px;
+        width: 6px;
+        }
+    }
+
+.parens {
+    color: $color_text_grey;
+
+    &:after {
+        content: ")"
+        }
+    &:before {
+        content: "("
+        }
+    }
+.currency {
+    &:before {
+        content: "$";
+        }
+    }
+
+.pipe {
+    background-color: $color_text_grey;
+    display: inline-block;
+    height: 7px;
+    width: 1px;
+    }
+.pipe--tall {
+    height: 10px;
+    }
+.pipe--dark {
+    background-color: $color_text_grey;
+    }
+
+.sizes {}
+.sizes__item {
+    @include transition(color $base_transition_duration1 ease);
+    border-bottom: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+    color: $color_dark;
+    float: left;
+    font-family: $font_trade_gothic_20;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    width: 20%;
+
+    &:before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+        }
+
+    &.is-active {
+        background-color: $color_dark;
+        color: $color_white;
+        }
+    &.is-inactive {
+        background-color: $color_background_grey;
+        color: $color_text_grey;
+        text-decoration: line-through;
+        }
+    }
+.sizes__item:nth-child(5n+5) {
+    border-right: 0;
+    }
+.sizes__value {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    }
+
+.stars {}
+.star {
+    color: $color_text_grey_light;
+    font-size: 12px;
+
+    &.is-active {
+        color: $color_accent;
+        }
+    &.is-active--dark {
+        color: $color_dark;
+        }
+    }
+
+// page tabbing
+.tabs {}
+.tab {
+    @include transition(color $base_transition_duration1 ease);
+    position: relative;
+    font-family: $font_trade_gothic_20 !important;
+    text-transform: uppercase;
+    }
+.tab:first-child:after {
+    background-color: $color_border_grey;
+    bottom: 0;
+    content: "";
+    height: 50%;
+    left: 100%;
+    position: absolute;
+    top: 25%;
+    width: 1px;
+    }
+.tab.is-active {
+    color: $color_dark;
+    }
+
+// page tags
+.tags {
+    font-family: $grid_inline_control_font;
+    letter-spacing: 7px;
+    text-align: center;
+    }
+.tag {
+    border: 1px solid #747474;
+    display: inline-block;
+    letter-spacing: normal;
+    line-height: 1;
+    margin-bottom: 15px;
+    padding: 15px;
+    vertical-align: middle;
+    }
+.tag--light {
+    border-color: $color_border_dark;
+    }
+
+
+// nikeid
+.nikeid {
+    background-color: $color_background_grey_dark;
+    line-height: 1.2;
+    }
+
+
+// circles...
+.circle {
+    border: 2px solid $color_white;
+    border-radius: 40px;
+    display: inline-block;
+    height: 40px;
+    line-height: 39px;
+    text-align: center;
+    width: 40px;
+    }
+.circle--small {
+    background-color: $color_accent;
+    border: 0;
+    border-radius: 14px;
+    color: $color_white;
+    font-size: 8px;
+    height: 14px;
+    line-height: 14px;
+    width: 14px;
+    }
+.circle--cart-indicator {
+    display: none;
+    left: 45px;
+    letter-spacing: normal;
+    position: absolute;
+    text-align: center;
+    text-indent: -1px;
+    top: 25px;
+
+    &.is-active {
+        display: block;
+        }
+    }

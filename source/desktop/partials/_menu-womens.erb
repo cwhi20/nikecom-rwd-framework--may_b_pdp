@@ -1,0 +1,44 @@
+<div class="navi--main__menu js-navi-main-menu js-navi-main--women">
+    <div class="list list--inline -text--center">
+        <div class="navi--main__list list--inline__item col--2of12 -vertical--top -text--left">
+            <div class="h2 margin-bottom--20 -font--16">Featured</div>
+            <a href="#" class="a a--block a--clean js-navi-main-link -font--12">Gift Guide</a>
+            <a href="#" class="a a--block a--clean js-navi-main-link -font--12">New Releases</a>
+            <a href="#" class="a a--block a--clean js-navi-main-link -font--12">Launch Calendar</a>
+            <a href="#" class="a a--block a--clean js-navi-main-link -font--12">Fan Gear</a>
+            <a href="#" class="a a--block a--clean js-navi-main-link -font--12">Clearance</a>
+        </div>
+        <div class="navi--main__list list--inline__item col--2of12 -vertical--top -text--left">
+            <div class="h2 margin-bottom--20 -font--16">Shoes</div>
+            <a href="#" class="a a--block a--clean js-navi-main-link -font--12">Lifestyle</a>
+            <% @categories_womens.each do |sport| %>
+            <a href="<% if @taxonomy_links[sport] %><%= @taxonomy_links[sport] %><% else %>#<% end %>" class="a a--block a--clean js-navi-main-link -font--12"><%= sport %></a>
+            <% end %>
+        </div>
+        <div class="navi--main__list list--inline__item col--2of12 -vertical--top -text--left">
+            <div class="h2 margin-bottom--20 -font--16">Clothing</div>
+            <% @products_womens.each do |product, types| %>
+            <% if product != "Clearance" && product != "Shoes" %>
+                <a href="<% if @taxonomy_links[product] %><%= @taxonomy_links[product] %><% else %>#<% end %>" class="a a--block a--clean js-navi-main-link -font--12"><%= product %></a>
+            <% end %>
+            <% end %>
+        </div>
+        <div class="navi--main__list list--inline__item col--2of12 sport-col -vertical--top -text--left">
+            <div class="h2 margin-bottom--20 -font--16">Explore</div>
+            <a href="#" class="a a--block a--clean js-navi-main-link -font--12">Nike Sportswear</a>
+            <% @categories_womens.each do |sport| %>
+            <a href="<% if @taxonomy_links[sport] %><%= @taxonomy_links[sport] %><% else %>#<% end %>" class="a a--block a--clean js-navi-main-link -font--12"><%= sport %></a>
+            <% end %>
+        </div>
+    </div>
+    <div class="list list--inline margin-top--10 -text--center">
+        <div class="navi--main__list list--inline__item col--2of12 -vertical--top -text--left">&nbsp;</div>
+        <div class="navi--main__list list--inline__item col--2of12 -vertical--top -text--left">
+            <a href="#" class="a a--block -font--12">Shop all Shoes</a>
+        </div>
+        <div class="navi--main__list list--inline__item col--2of12 -vertical--top -text--left">
+            <a href="#" class="a a--block -font--12">Shop all Clothing</a>
+        </div>
+        <div class="navi--main__list list--inline__item col--2of12 -vertical--top -text--left">&nbsp;</div>
+    </div>
+</div>

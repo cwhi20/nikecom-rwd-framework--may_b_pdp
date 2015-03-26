@@ -1,0 +1,14 @@
+---
+title: Men&rsquo;s Running Shoes // Nike Vision Prototype
+gender: Men&rsquo;s
+model: drop
+product: Shoes
+category: Soccer
+---
+<%= partial "partials/data-gridwall" %>
+<%
+@gridwall = @grid_shoes_soccer.push( @grid_shoes_soccer[0] )
+@layout = "desktop/partials/gridwall-layout-one"
+@lhn = "desktop/partials/lhn-sport-drop"
+%>
+<%= partial "desktop/partials/gridwall-wrapper" %>

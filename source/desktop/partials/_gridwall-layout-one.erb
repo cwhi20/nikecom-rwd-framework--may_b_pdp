@@ -1,0 +1,19 @@
+<section class="gridwall padding-left--50 padding-bottom--50 -clear">
+<%
+@i = 0
+@n = 10
+while @i < @n do
+    @gridwall.each do |tile| %>
+    <div class="col gridwall__col padding-left--10 padding-right--10">
+        <div class="gridwall__img js-lazy-image js-resize -cover" data-img-src="<%= tile["image"] %>" data-resize="gridwall"></div>
+        <div class="gridwall__nfo padding-top--20 padding-bottom--60">
+            <div class="p p--dark -font--14"><%= tile["title"] %></div>
+            <div class="p">Men&rsquo;s <%= tile["category"] %> <%= @singular_product_type[current_page.data.product] %></div>
+            <div class="p"><%= tile["price"] %></div>
+        </div>
+    </div>
+<%
+    end
+    @i += 1
+end %>
+</section>

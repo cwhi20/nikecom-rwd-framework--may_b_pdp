@@ -1,0 +1,195 @@
+.p {
+    @include transition(color $base_transition_duration1 ease);
+    color: $color_text_grey;
+    font-family: $font_helvetica;
+    font-size: 14px;
+    letter-spacing: normal;
+    text-transform: none;
+    }
+.p--light {
+    color: $color_white;
+    }
+.p--grey {
+    color: $color_text_grey;
+    }
+.p--grey-dark {
+    color: #999;
+    }
+.p--detail {
+    font-size: 12px;
+    }
+.p--dark {
+    color: $color_dark;
+    }
+.p--inherit {
+    font-size: inherit;
+    }
+
+.a {
+    @include transition(color $base_transition_duration_fast ease);
+    color: $color_dark;
+    font-family: $font_helvetica;
+    font-size: 14px;
+    text-decoration: underline;
+    }
+.a--clean {
+    text-decoration: none;
+    }
+.a--grey {
+    color: $color_text_grey;
+
+    &:hover {
+        color: $color_dark;
+        }
+    }
+.a--p {
+    color: $color_text_grey;
+    }
+.a--light {
+    color: $color_white;
+    }
+.a--block {
+    display: block;
+    }
+.a--inline {
+    font-size: inherit;
+    }
+
+.h1 {
+    color: $color_dark;
+    font-family: $font_trade_gothic_20;
+    font-size: 28px;
+    line-height: 1;
+    text-transform: uppercase;
+    }
+.h1--p1 {
+    font-size: 3vw;
+    }
+.h1--light {
+    color: $color_white;
+    }
+
+.h2 {
+    color: $color_dark;
+    font-family: $font_trade_gothic_20;
+    font-size: 19px;
+    line-height: 1;
+    text-transform: uppercase;
+    }
+.h2--title {
+    font-size: 22px;
+    }
+.h2--light {
+    color: $color_white;
+    }
+.h2--grey {
+    color: $color_text_grey;
+    }
+
+.h3 {
+    color: $color_text_grey;
+    font-family: $font_trade_gothic_20;
+    font-size: 17px;
+    text-transform: uppercase;
+    }
+.h3--dark {
+    color: $color_dark;
+    }
+
+.h4 {
+    color: $color_white;
+    font-family: $font_futura_xbold_cond;
+    font-size: 38px;
+    font-style: italic;
+    line-height: 1.0845;
+    text-transform: uppercase;
+    }
+
+.h5 {
+    color: $color_dark;
+    font-family: $font_trade_gothic_20;
+    font-size: 25px;
+    line-height: 1;
+    text-transform: uppercase;
+    }
+.h5--light {
+    color: $color_white;
+    }
+
+.h6 {
+    color: $color_text_grey;
+    font-family: $font_trade_gothic_20;
+    font-size: 12px;
+    line-height: 1.33333;
+    text-transform: uppercase;
+    }
+.h6--dark {
+    color: $color_dark;
+    }
+.h6--light {
+    color: $color_white;
+    }
+
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    letter-spacing: 1px;
+    }
+
+
+// Invert with inheritance
+.inverted {
+    background-color: $color_dark;
+
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .icon {
+        color: $color_white !important;
+        }
+
+    .p,
+    .p--detail {
+        
+        }
+    }
+
+@media only screen and ( min-width: $grid_min_width ) {
+    .h1--p1 {
+        font-size: 50px;
+        }
+}
+
+@media only screen and ( max-width: $break_tablet_medium ) {
+    .p {
+        
+        }
+    .p--detail {
+        
+        }
+    .h1 {
+        font-size: 19px;
+        }
+    .h2 {
+        
+        }
+    .h3 {
+        
+        }
+    .h4 {
+        
+        }
+    .h5 {
+        
+        }
+    .h6 {
+        
+        }
+}

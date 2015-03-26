@@ -1,0 +1,171 @@
+.slide {
+    @include transition(transform $base_transition_duration1 ease);
+    background-color: $color_white;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: $z_layer_hidden;
+    -webkit-backface-visibility: hidden;
+
+    &.is-active {
+        @include transform(translate3d(0, 0, 0));
+        visibility: visible;
+        z-index: $z_layer_forward;
+        }
+    }
+.slide--padded {
+    padding-top: 63px;
+    }
+
+.slide--with-x:before {
+    @include icon-layout();
+    opacity: 0;
+    @include transition(opacity $base_transition_duration1 ease $base_transition_duration2);
+    color: $color_white;
+    content: $code_close;
+    font-size: 17px;
+    padding: 25px 30px;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    top: -67px;
+    width: 100%;
+    }
+.slide--with-x.is-active:before {
+    opacity: 1;
+    }
+
+.slide__close {
+    font-size: 10px;
+    font-weight: bold;
+    }
+
+.slide__scroll {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    }
+
+.slide--top {
+    @include transform(translate3d(0, -100%, 0));
+
+    &.is-leaving {
+        @include transform(translate3d(0, -100%, 0));
+        }
+
+    .slide__close:before {
+        content: $code_arrow_up;
+        font-size: 10px;
+        }
+    }
+.slide--right {
+    @include transform(translate3d(-100%, 0, 0));
+
+    &.is-leaving {
+        @include transform(translate3d(-100%, 0, 0));
+        }
+
+    .slide__close:before {
+        content: $code_arrow_right;
+        }
+    }
+.slide--bottom {
+    @include transform(translate3d(0, 100%, 0));
+
+    &.is-leaving {
+        @include transform(translate3d(0, 100%, 0));
+        }
+
+    .slide__close:before {
+        content: $code_arrow_down;
+        font-size: 10px;
+        }
+    }
+.slide--left {
+    @include transform(translate3d(100%, 0, 0));
+
+    &.is-leaving {
+        @include transform(translate3d(100%, 0, 0));
+        }
+
+    .slide__close:before {
+        content: $code_arrow_left;
+        }
+    }
+
+// mobile nav slides
+.slide--navi-mobile {
+    @include transform(translate3d(calc(100% + #{$navi_mobile_offset}), 0, 0));
+    }
+.slide--navi-mobile.is-active {
+    @include transform(translate3d($navi_mobile_offset, 0, 0));
+    }
+.slide--navi-mobile.is-leaving {
+    @include transform(translate3d(calc(100% + #{$navi_mobile_offset}), 0, 0));
+    }
+
+
+@media only screen and ( max-width: $break_tablet_full ) and ( min-width: $break_mobile_full ) {
+    .navi-mobile-slides .slide--navi-mobile {
+        left: auto;
+        right: 0;
+        @include transform(translate3d(100%, 0, 0));
+
+        &.is-active {
+            @include transform(translate3d(0, 0, 0));
+            }
+        &.is-leaving {
+            @include transform(translate3d(100%, 0, 0));
+            }
+        }
+}
+
+
+@each $col in $grid_columns {
+    .slide--top--#{$col} {
+        @include transform(translate3d(0, -(percentage( ($col / $grid_length) * (($grid_length / $col) * ($grid_length / $col)) )), 0));
+        height: percentage( $col / $grid_length );
+        }
+    .slide--right--#{$col} {
+        @include transform(translate3d(-(percentage( ($col / $grid_length) * (($grid_length / $col) * ($grid_length / $col)) )), 0, 0));
+        width: percentage( $col / $grid_length );
+        }
+    .slide--bottom--#{$col} {
+        @include transform(translate3d(0, (percentage( ($col / $grid_length) * (($grid_length / $col) * ($grid_length / $col)) )), 0));
+        height: percentage( $col / $grid_length );
+        }
+    .slide--left--#{$col} {
+        @include transform(translate3d((percentage( ($col / $grid_length) * (($grid_length / $col) * ($grid_length / $col)) )), 0, 0));
+        width: percentage( $col / $grid_length );
+        }
+
+    .slide--top--#{$col}.is-active {
+        @include transform(translate3d(0, -(percentage( ($grid_length / $col) - 1 )), 0));
+        }
+    .slide--right--#{$col}.is-active {
+        @include transform(translate3d(-(percentage( ($grid_length / $col) - 1 )), 0, 0));
+        }
+    .slide--bottom--#{$col}.is-active {
+        @include transform(translate3d(0, percentage( ($grid_length / $col) - 1 ), 0));
+        }
+    .slide--left--#{$col}.is-active {
+        @include transform(translate3d(percentage( ($grid_length / $col) - 1 ), 0, 0));
+        }
+
+    .slide--top--#{$col}.is-leaving {
+        @include transform(translate3d(0, -(percentage( ($col / $grid_length) * (($grid_length / $col) * ($grid_length / $col)) )), 0));
+        }
+    .slide--right--#{$col}.is-leaving {
+        @include transform(translate3d(-(percentage( ($col / $grid_length) * (($grid_length / $col) * ($grid_length / $col)) )), 0, 0));
+        }
+    .slide--bottom--#{$col}.is-leaving {
+        @include transform(translate3d(0, (percentage( ($col / $grid_length) * (($grid_length / $col) * ($grid_length / $col)) )), 0));
+        }
+    .slide--left--#{$col}.is-leaving {
+        @include transform(translate3d((percentage( ($col / $grid_length) * (($grid_length / $col) * ($grid_length / $col)) )), 0, 0));
+        }
+}

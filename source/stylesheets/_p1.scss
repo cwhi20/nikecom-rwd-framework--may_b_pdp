@@ -1,0 +1,35 @@
+.p1 {}
+
+.p1--full {
+    position: relative;
+    z-index: $z_layer_07;
+    }
+
+.p1--home {
+    cursor: pointer;
+    }
+
+.p1--gridwall {
+    max-height: 700px;
+    }
+
+.p1__main {
+    margin: 0 auto;
+    max-width: 1940px;
+    text-align: left;
+    }
+
+
+@media only screen and ( max-width: (1940px + 200px) ) {
+    .p1__main {
+        max-width: $grid_min_width;
+        }
+}
+
+@media only screen and ( max-width: ($grid_min_width + 200px) ) {
+    .p1__main {
+        max-width: 100%;
+        padding: 0 100px;
+        width: 100%;
+        }
+}

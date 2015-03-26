@@ -1,0 +1,22 @@
+.overlay {
+    @include transition(opacity $base_transition_duration0 ease);
+    opacity: 0;
+    background-color: $color_black;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: $z_layer_hidden;
+    -webkit-backface-visibility: hidden;
+
+    &.is-active {
+        opacity: 0.8;
+        visibility: visible;
+        z-index: $z_layer_09;
+        }
+    &.is-leaving {
+        opacity: 0;
+        }
+    }

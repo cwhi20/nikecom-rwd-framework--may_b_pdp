@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="js-html">
+    <head>
+    <meta charset="utf-8" />
+
+    <!-- Mmmeta -->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Nike.com" />
+
+    <!-- Favicon -->
+    <link href="images/favicon.png?v=0.1" rel="SHORTCUT ICON" type="image/x-icon">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title><%= current_page.data.title || "Nike Vision Prototype" %></title>
+
+    <%= stylesheet_link_tag "screen" %>
+    </head>
+
+    <body class="js-body">
+        <section class="page js-page">
+            <%= partial "desktop/partials/page-header-full" %>
+            <div class="module module--page js-module--page">
+                <%= yield %>
+            </div>
+            <%= partial "desktop/partials/page-footer-full" %>
+        </section>
+        <%= partial "partials/page-overlay" %>
+        <%= javascript_include_tag current_page.data.scripts || "dist/app" %>
+    </body>
+</html>

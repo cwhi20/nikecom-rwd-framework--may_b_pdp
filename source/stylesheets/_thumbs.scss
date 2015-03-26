@@ -1,0 +1,27 @@
+.thumbs {
+    @include transition(opacity $base_transition_duration1 ease);
+
+    &.is-inactive {
+        opacity: 0;
+        }
+    }
+.thumbs__item {
+    @include transition(opacity $base_transition_duration1 ease);
+    border: 1px solid $color_white;
+    float: left;
+    line-height: 0;
+    overflow: hidden;
+    position: relative;
+
+    &.is-inactive {
+        opacity: 0;
+        }
+    }
+.thumbs__item--inline {
+    float: none;
+    }
+.thumbs__context {
+    line-height: 1;
+    padding: 15px 15px 30px;
+    }
+.thumbs__title {}

@@ -1,0 +1,21 @@
+.module {
+    background-color: $color_white;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    @include transition(opacity $base_transition_duration2 ease, transform $base_transition_duration2 ease);
+
+    &.is-overlain {
+        opacity: 0.8;
+        @include transform(translate3d(0, 50px, 0));
+        }
+
+    &.is-reactive {
+        @include transform(translate3d(0, 50px, 0));
+        }
+
+    &.is-inactive {
+        opacity: 0;
+        }
+    }

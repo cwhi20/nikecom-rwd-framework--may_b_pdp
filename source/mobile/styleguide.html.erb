@@ -1,0 +1,235 @@
+---
+title: Style Guide // Nike Mobile Prototype
+---
+<section class="styleguide">
+    <section class="padding-top--10 padding-bottom--60 -text--center">
+        <div class="h2">Nike Styleguide</div>
+        <div class="p">Module Index</div>
+    </section>
+
+    <!-- Typography -->
+    <div class="button button--light-dark -text--left -border--top">Typography</div>
+    <section class="padding--30">
+        <div class="h1 margin-bottom--10">Heading One</div>
+        <div class="h2 margin-bottom--10">Heading Two</div>
+        <div class="h3 margin-bottom--10">Heading Three</div>
+        <div class="h3 h3--dark margin-bottom--10">Heading Three Dark</div>
+        <div class="h6 margin-bottom--10">Heading Six</div>
+        <div class="p margin-bottom--10">This is a body of text representative of a paragraph lorem ipsum blah blah blah&hellip;</div>
+        <div class="p p--detail">This is a body of text representative of a paragraph lorem ipsum blah blah blah&hellip;</div>
+    </section>
+    <section class="inverted padding--30 padding-top--60 padding-bottom--60 -text--center">
+        <div class="h1 margin-bottom--20">Heading One</div>
+        <div class="p">This is a body of text representative of a paragraph lorem ipsum blah blah blah&hellip;</div>
+    </section>
+    <section class="padding--30 padding-top--60 padding-bottom--60 -text--center">
+        <div class="h1 margin-bottom--20">Heading One</div>
+        <div class="p">This is a body of text representative of a paragraph lorem ipsum blah blah blah&hellip;</div>
+    </section>
+
+    <!-- Buttons -->
+    <div class="button button--light-dark -text--left -border--top">Buttons</div>
+    <section class="padding--30">
+        <div class="button margin-bottom--10 js-button">Button</div>
+        <div class="button button--light margin-bottom--10 -border js-button">Button Light</div>
+        <div class="button button--light button--light--dark -border js-button">Button Light Dark</div>
+    </section>
+
+    <div class="button button--light-dark -text--left -border--top">Buttons - Loading</div>
+    <section class="padding--30">
+        <div class="button margin-bottom--10 js-button js-spinner js-spinner--initial"></div>
+        <div class="button margin-bottom--10 button--light -border js-button js-spinner js-spinner--initial js-spinner--dark"></div>
+    </section>
+
+    <!-- Forms -->
+    <div class="button button--light-dark -bg--grey -text--left -border--top">Forms</div>
+    <section class="padding--30 -bg--grey">
+        <form class="form">
+            <input class="input margin-bottom--20 js-input" type="text" placeholder="Input" />
+            <label class="checkbox margin-bottom--20 js-checkbox" for="fCheck1">
+                <input type="checkbox" name="test_check" value="Checkbox" id="fCheck1" class="checkbox__input js-checkbox-input" />
+                <div class="checkbox__label">Checkbox</div>
+            </label>
+            <div class="radiobuttons margin-bottom--20">
+                <label class="checkbox js-checkbox js-radio" for="fRadio1">
+                    <input type="radio" name="test_radio" value="Radio1" id="fRadio1" class="checkbox__input checkbox__input--radio js-checkbox-input" />
+                    <div class="label checkbox__label">Radio Button 1</div>
+                </label>
+                <label class="checkbox js-checkbox js-radio" for="fRadio2">
+                    <input type="radio" name="test_radio" value="Radio2" id="fRadio2" class="checkbox__input checkbox__input--radio js-checkbox-input" />
+                    <div class="label checkbox__label">Radio Button 2</div>
+                </label>
+                <label class="checkbox js-checkbox js-radio" for="fRadio3">
+                    <input type="radio" name="test_radio" value="Radio3" id="fRadio3" class="checkbox__input checkbox__input--radio js-checkbox-input" />
+                    <div class="label checkbox__label">Radio Button 3</div>
+                </label>
+            </div>
+            <input class="button js-submit" type="submit" value="Submit" />
+        </form>
+    </section>
+
+    <!-- Carousels -->
+    <div class="button button--light-dark -text--left -border--top">Carousel - Apparel</div>
+    <%= partial "mobile/partials/carousel-apparel" %>
+    <div class="button button--light-dark -text--left -border--top">Carousel - Footwear</div>
+    <%= partial "mobile/partials/carousel-footwear" %>
+
+    <!-- Modals -->
+    <div class="button button--light-dark -text--left -border--top">Modals</div>
+    <section class="padding--30">
+        <div class="button margin-bottom--10 js-button js-modal-controller" data-target=".js-modal--test">Modal</div>
+        <div class="modal js-modal-view js-modal--test">
+            <div class="modal__navi padding--10 -border--bottom">
+                <ul class="list -clear">
+                    <li class="list__item -lineheight--1 -float--right">
+                        <span class="modal__close icon js-modal-close"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doorways -->
+    <div class="button button--light-dark -text--left -border--top">Doorways</div>
+    <section class="padding--30">
+        <div class="button margin-bottom--10 js-button js-slide-controller" data-target=".js-slide--top">Slide Top</div>
+        <div class="slide slide--top js-slide-view js-slide--top">
+            <div class="slide__navi padding--10 -border--bottom">
+                <ul class="list -clear">
+                    <li class="list__item -lineheight--1 -float--right">
+                        <span class="slide__close icon js-slide-close"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="button margin-bottom--10 js-button js-slide-controller" data-target=".js-slide--right">Slide Right</div>
+        <div class="slide slide--right js-slide-view js-slide--right">
+            <div class="slide__navi padding--10 -border--bottom">
+                <ul class="list -clear">
+                    <li class="list__item -lineheight--1 -float--right">
+                        <span class="slide__close icon js-slide-close"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="button margin-bottom--10 js-button js-slide-controller" data-target=".js-slide--bottom">Slide Bottom</div>
+        <div class="slide slide--bottom slide--bottom--6 js-slide-view js-slide--bottom">
+            <div class="slide__navi padding--10 -border--bottom">
+                <ul class="list -clear">
+                    <li class="list__item -lineheight--1 -float--right">
+                        <span class="slide__close icon js-slide-close"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="button margin-bottom--10 js-button js-slide-controller" data-target=".js-slide--left">Slide Left</div>
+        <div class="slide slide--left js-slide-view js-slide--left">
+            <div class="slide__navi padding--10 -border--bottom">
+                <ul class="list -clear">
+                    <li class="list__item -lineheight--1 -float--left">
+                        <span class="slide__close icon js-slide-close"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Icons -->
+    <div class="button button--light-dark -text--left -border--top">Icons</div>
+    <section class="padding--30 -clear">
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--arrow-down"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--arrow-right"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--arrow-up"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--arrow-left"></span>
+        </div>
+
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--cart"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--checkmark"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--close"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--converse"></span>
+        </div>
+
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--email"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--facebook"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--fuel"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--heart"></span>
+        </div>
+
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--hurley"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--jordan"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--menu"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--nikeid"></span>
+        </div>
+
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--options"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--pinterest"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--play"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--plus"></span>
+        </div>
+
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--search"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--share"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--sportswear"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--star"></span>
+        </div>
+
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--swoosh"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--tumblr"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--twitter"></span>
+        </div>
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--user"></span>
+        </div>
+
+        <div class="col col--4of12 padding--20">
+            <span class="icon icon--gear"></span>
+        </div>
+    </section>
+</section>

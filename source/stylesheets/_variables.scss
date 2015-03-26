@@ -1,0 +1,101 @@
+// Colors: BW
+$color_white: #fff;
+$color_black: #000;
+$color_dark: #111;
+
+// Colors: Grey
+$color_text_grey: #8d8d8d;
+$color_text_grey_light: #ccc;
+$color_background_grey: #f5f5f5;
+$color_background_grey_light: #f7f7f7;
+$color_background_grey_dark: #dedede;
+$color_border_grey: #e5e5e5;
+$color_border_dark: #ddd;
+$color_border_grey_dark: #252525;
+$color_middle_grey: #555;
+
+// Colors: Rainbow
+$color_accent: #ff841f;
+$color_error: #ff0015;
+$color_facebook: #3f59a6;
+$color_twitter: #00acee;
+$color_pinterest: #bf2d38;
+
+// Base
+$base_font_size: 16px;
+$base_gutter: 10px;
+$base_padding_general: 30px;
+$base_line_height: 1.6;
+$base_line_height_open: 1.9;
+$base_border_radius: 2px;
+$base_transition_duration_fast: 200ms;
+$base_transition_duration0: 300ms;
+$base_transition_duration1: 400ms;
+$base_transition_duration2: 600ms;
+$base_transition_duration3: 800ms;
+$base_transition_duration4: 1000ms;
+
+// Forms
+$form_checkbox_dims: 12px;
+
+// Modules
+$carousel_indicator_size: 8px;
+$carousel_indicator_size_large: 10px;
+$page_header_main_height: 65px;
+$page_header_aside_height: 33px;
+$page_header_full_height: ($page_header_main_height + $page_header_aside_height);
+$navi_mobile_offset: 110px;
+$navi_tablet_width: 320px;
+
+// Fonts
+$font_helvetica: "Helvetica Neue", Helvetica, Sans-serif;
+$font_trade_gothic_20: "TradeGothicW01-BoldCn20 675334", Sans-serif;
+$font_trade_gothic_18: "Trade Gothic W01 Cn 18", Sans-serif;
+$font_futura_bold_cond: "FuturaW01-BoldCondensed 774890", Sans-serif;
+$font_futura_xbold_cond: "FuturaW01-ExtraBoldCond 774896", Sans-serif;
+
+// Layering
+$z_layer_10: 100;
+$z_layer_09: 90;
+$z_layer_08: 80;
+$z_layer_07: 70;
+$z_layer_06: 60;
+$z_layer_05: 50;
+$z_layer_04: 40;
+$z_layer_03: 30;
+$z_layer_02: 20;
+$z_layer_01: 10;
+$z_layer_pseudo: 1;
+$z_layer_hidden: -1;
+$z_layer_forward: 999;
+$z_layers: $z_layer_10 $z_layer_09 $z_layer_08 $z_layer_07 $z_layer_06 $z_layer_05 $z_layer_04 $z_layer_03 $z_layer_02 $z_layer_01 $z_layer_pseudo $z_layer_forward;
+
+// Breakpoints
+$break_laptop_medium: 1440px;
+$break_tablet_full: 1280px;
+$break_tablet_medium: 1024px;
+$break_tablet_small: 768px;
+$break_mobile_full: 640px;
+$break_mobile_medium: 480px;
+$break_mobile_small: 320px;
+$break_point_sizes: 2560px 2048px 1920px 1680px 1600px $break_laptop_medium 1360px $break_tablet_full $break_tablet_medium 800px $break_tablet_small;
+
+// Ratios
+$ratio_smaller_device: 0.5;
+$ratio_small_device: 0.6;
+$ratio_medium_device: 0.7;
+$ratio_padding: (95px / 1780px);
+$ratios: (tablet-full, $ratio_medium_device) (tablet-medium, $ratio_medium_device) (tablet-small, 0.8) (mobile-full, 0.6) (mobile-medium, 0.6) (mobile-small, 0.5);
+
+// Margins
+$spacing: 0 1 2 3 4 5 10 11 12 13 14 15 20 25 30 35 40 50 60 70 80 90 100 110 120;
+$font_sizes: 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 24 30 40 50;
+
+// Grid
+$grid_length: 12;
+$grid_columns: 12 11 10 9 8 7 6 5 4 3 2 1;
+$grid_inline_control_font: "Courier New", Monospace;
+$grid_inline_control_spacing: -.61em;
+$grid_nav_width: 220px;
+$grid_laptop_width: 1500px;
+$grid_min_width: 1600px;

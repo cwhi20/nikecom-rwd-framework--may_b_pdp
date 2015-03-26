@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html class="js-html">
+    <head>
+    <meta charset="utf-8" />
+
+    <!-- Mmmeta -->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Nike.com" />
+
+    <!-- Favicon -->
+    <link href="images/favicon.png?v=0.1" rel="SHORTCUT ICON" type="image/x-icon">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title><%= current_page.data.title || "Nike Vision Prototype" %></title>
+
+    <%= stylesheet_link_tag "screen" %>
+    </head>
+
+    <body class="<%= page_classes %> js-body">
+        <section class="page js-page">
+            <%= partial "mobile/partials/page-header-mobile" %>
+            <%= yield %>
+            <% if current_page.data.model == "kobe" %>
+                <%= partial "mobile/partials/page-footer-mobile" %>
+            <% end %>
+        </section>
+        <%= partial "partials/page-overlay" %>
+        <% if current_page.data.model == "kobe" %>
+            <%= partial "mobile/partials/navi-tunnel" %>
+        <% end %>
+        <%= partial "mobile/partials/page-notification" %>
+        <%= javascript_include_tag current_page.data.scripts || "dist/app" %>
+        <% if current_page.data.model == "kobe" %>
+            <!-- Javascripts that are lazyloaded are included here -->
+            <script data-context="CSSPlugin" data-src="../javascripts/lib/greensock/src/minified/plugins/CSSPlugin.min.js"></script>
+            <script data-context="ThrowProps" data-src="../javascripts/lib/greensock/src/minified/plugins/ThrowPropsPlugin.min.js"></script>
+            <script data-context="EasePack" data-src="../javascripts/lib/greensock/src/minified/easing/EasePack.min.js"></script>
+            <script data-context="TweenLite" data-src="../javascripts/lib/greensock/src/minified/TweenLite.min.js"></script>
+            <script data-context="Draggable" data-src="../javascripts/lib/greensock/src/minified/utils/Draggable.min.js"></script>
+        <% end %>
+    </body>
+</html>

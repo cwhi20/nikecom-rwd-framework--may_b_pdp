@@ -1,0 +1,257 @@
+.button {
+    @include transition(background-color $base_transition_duration1 ease);
+    background-color: $color_dark;
+    border: none;
+    color: $color_white;
+    display: block;
+    font-family: $font_trade_gothic_20;
+    font-size: 17px;
+    letter-spacing: 1px;
+    line-height: 1;
+    outline: none;
+    padding: 23px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+    }
+
+.button span {
+    display: inline-block;
+    vertical-align: middle;
+    }
+
+.button--slim {
+    padding-bottom: 24.5px;
+    padding-top: 24.5px;
+    }
+
+.button--inline {
+    @include border-radius($base_border_radius);
+    cursor: pointer;
+    display: inline-block;
+    padding: ($base_padding_general / 2) $base_padding_general (($base_padding_general / 2) - 2);
+    width: auto;
+    }
+
+.button--select {
+    background-color: transparent;
+    border-radius: 0;
+    color: $color_white;
+    -webkit-appearance: none;
+    }
+
+.button--p {
+    color: $color_text_grey;
+    font-family: $font_helvetica;
+    font-size: 14px;
+    text-transform: none;
+    }
+
+.button--h {
+    background-color: $color_white;
+    color: $color_text_grey;
+    font-size: 14px;
+    }
+.button--h-dark {
+    color: $color_dark;
+    font-size: 14px;
+    }
+
+.button--light {
+    background-color: $color_white;
+    color: $color_text_grey;
+    }
+.button--light--dark {
+    color: $color_dark;
+    }
+
+.button--light-clean {
+    background-color: $color_white;
+    color: $color_text_grey;
+    }
+
+.button--light-accent {
+    background-color: $color_white;
+    color: $color_accent;
+    }
+.button--accent {
+    background-color: $color_accent;
+    color: $color_white;
+    }
+
+.button--light-dark {
+    background-color: $color_white;
+    color: $color_dark;
+    }
+ 
+.button--grey-dark {
+    background-color: $color_background_grey;
+    color: $color_dark;
+    position: relative;
+
+    &.is-active {
+        background-color: $color_white;
+        }
+    }
+
+.button--facebook {
+    background-color: $color_facebook;
+    }
+.button--twitter {
+    background-color: $color_twitter;
+    }
+.button--pinterest {
+    background-color: $color_pinterest;
+    }
+
+.button--after-right {
+    &:after {
+        background-color: $color_text_grey;
+        bottom: 0;
+        content: "";
+        position: absolute;
+        right: 1px;
+        top: 0;
+        width: 1px;
+        }
+    &.is-active:after {
+        display: none;
+        }
+    }
+
+.button--right:before {
+    @include icon-layout();
+    color: $color_dark;
+    content: $code_arrow_right;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -8px;
+    position: absolute;
+    right: $base_padding_general;
+    top: 50%;
+    }
+.button--left:before {
+    @include icon-layout();
+    color: $color_dark;
+    content: $code_arrow_left;
+    font-size: 16px;
+    font-weight: bold;
+    left: $base_padding_general;
+    margin-top: -8px;
+    position: absolute;
+    top: 50%;
+    }
+
+.button--left--small:before,
+.button--right--small:before {
+    font-size: 10px;
+    margin-top: -5px;
+    }
+
+.button--down:before {
+    @include icon-layout();
+    color: $color_text_grey;
+    content: $code_arrow_down;
+    font-size: 7px;
+    font-weight: bold;
+    margin-top: -5px;
+    position: absolute;
+    right: $base_padding_general;
+    top: 50%;
+    }
+.button--down.is-active:before {
+    content: $code_arrow_up;
+    }
+
+.button--close:before {
+    @include icon-layout();
+    color: $color_dark;
+    content: $code_close;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -8px;
+    position: absolute;
+    right: $base_padding_general;
+    top: 50%;
+    }
+.button--close--small:before {
+    font-size: 10px;
+    margin-top: -5px;
+    }
+
+.button--sticky {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    width: auto;
+    z-index: $z_layer_forward;
+    @include transition(transform $base_transition_duration1 ease);
+    @include transform(translate3d(0, calc(100% + #{$base_padding_general}), 0));
+
+    &.is-active {
+        @include transform(translate3d(0, 0, 0));
+        }
+    }
+.button--sticky--top {
+    bottom: auto;
+    top: 0;
+    @include transition(transform $base_transition_duration1 ease);
+    @include transform(translate3d(0, calc(-100% - #{$base_padding_general}), 0));
+
+    &:after {
+        background-color: rgba( 226, 226, 226, 0.2 );
+        bottom: -1px;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        }
+
+    &.is-active {
+        @include transform(translate3d(0, 0, 0));
+        }
+    }
+.button--sticky--twos {
+    background-color: #222;
+
+    &:after {
+        display: none;
+        }
+    }
+.button--sticky__text {
+    text-indent: -64px;
+    }
+.button--sticky__icon {
+    bottom: 0;
+    line-height: 64px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 64px;
+    }
+
+
+@media only screen and ( max-width: $grid_laptop_width ) {
+    .button--inline {
+        padding: 13px 20px 11px;
+        }
+}
+
+
+@media only screen and ( max-width: $break_tablet_medium ) {
+    .button--inline {
+        background-color: none;
+        color: $color_dark;
+        display: block;
+        font-family: $font_helvetica;
+        font-size: 14px;
+        padding: 0;
+        text-decoration: underline;
+        text-transform: none;
+    }
+}

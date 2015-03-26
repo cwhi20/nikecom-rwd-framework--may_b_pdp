@@ -1,0 +1,27 @@
+<!-- Modals -->
+<div class="modal padding-bottom--80 js-modal-view js-modal--filter">
+    <div class="modal__scroll js-modal-scroll">
+        <div class="h3 h3--dark padding--30 js-modal-close -position--relative -text--center -close -close--right">
+            <span>Filter</span>
+        </div>
+        <%= partial "mobile/partials/filters-mobile" %>
+    </div>
+    <div class="button -position--fixed bottom--0 left--0 right--0 js-toggle-apply js-modal-close">Apply</div>
+</div>
+
+<div class="modal js-modal-view js-modal--sort">
+    <div class="modal__scroll js-modal-scroll">
+        <div class="h3 h3--dark padding--30 js-modal-close -position--relative -text--center -close -close--right">
+            <span>Sort</span>
+        </div>
+        <div class="radiobuttons">
+        <% @sorting.each do |sort| %>
+            <label class="checkbox button button--light-dark js-checkbox js-radio js-sort -text--left -clear -border--top" for="fRadio<%= sort %>">
+                <div class="label checkbox__label"><%= sort %></div>
+                <input type="radio" name="sort" value="<%= sort %>" id="fRadio<%= sort %>" class="checkbox__input checkbox__input--radio js-checkbox-input -float--right" <% if sort == "Newest" %>checked<% end %> />
+            </label>
+        <% end %>
+        </div>
+    </div>
+    <div class="button -position--fixed bottom--0 left--0 right--0 js-toggle-apply js-modal-close">Apply</div>
+</div>

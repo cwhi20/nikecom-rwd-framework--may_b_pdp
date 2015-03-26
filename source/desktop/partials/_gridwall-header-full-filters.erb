@@ -1,0 +1,60 @@
+<%
+@headline = ""
+
+if current_page.data.model == "filter" && current_page.data.product == "All"
+    @headline = "All Products"
+end
+if current_page.data.model == "filter" && current_page.data.product != "All"
+    @headline = current_page.data.product
+end
+
+if current_page.data.model == "drop" && current_page.data.category == "All"  && current_page.data.product == "All"
+    @headline = "All Products"
+end
+if current_page.data.model == "drop" && current_page.data.category == "All"  && current_page.data.product != "All"
+    @headline = current_page.data.product
+end
+if current_page.data.model == "drop" && current_page.data.category != "All"  && current_page.data.product == "All"
+    @headline = current_page.data.category
+end
+if current_page.data.model == "drop" && current_page.data.category != "All"  && current_page.data.product != "All"
+    @headline = current_page.data.category + " " + current_page.data.product
+end
+%>
+<section class="heading padding-left--50">
+    <div class="list list--inline margin-bottom--30">
+        <div class="list--inline__item col--2of4 -vertical--bottom">
+            <div class="heading__title -text--left">
+                <div class="h2 -font--20">
+                    <span class="js-gridwall-title"><%= @headline %></span>
+                    <span class="parens margin-left--5 js-gridwall-total"><%= @total_products[@total_id] %></span>
+                </div>
+            </div>
+            <% if current_page.data.model == "filter" %>
+            <div class="heading__filters js-filters-selected -lineheight--1 <% if @cats && @cats[0] != "All" %>is-active<% end %>">
+                <%
+                if @cats && @cats[0] != "All"
+                %>
+                <span class="span p margin-right--10 -font--14">Filtered by:</span>
+                <%
+                @cats.each do |sport|
+                    @url = get_sport_url( sport )
+                %>
+                    <a href="<%= @url %>" class="checkbox checkbox--inline margin-right--10 p js-checkbox js-remove-checkbox js-filter-params" for="fCategory<%= sport %>">
+                        <input type="checkbox" name="checkCategory<%= sport %>" value="<%= sport %>" id="fCategory<%= sport %>" class="checkbox__input is-remove js-checkbox-input" checked />
+                        <div class="checkbox__label margin-left--5"><%= sport %></div>
+                    </a>
+                <%
+                end
+                end
+                %>
+            </div>
+            <% end %>
+        </div>
+        <div class="list--inline__item col--2of4 -vertical--bottom">
+            <div class="heading__sort -text--right">
+                <%= partial "desktop/partials/sort-desktop" %>
+            </div>
+        </div>
+    </div>
+</section>

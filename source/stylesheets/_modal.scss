@@ -1,0 +1,46 @@
+.modal {
+    opacity: 0;
+    @include transition(opacity $base_transition_duration0 ease, transform $base_transition_duration0 ease, visibility $base_transition_duration0 ease, z-index $base_transition_duration0 ease);
+    @include scale(0.9);
+    background-color: $color_white;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: $z_layer_hidden;
+    -webkit-backface-visibility: hidden;
+
+    &.is-active {
+        opacity: 1;
+        @include scale(1);
+        visibility: visible;
+        z-index: $z_layer_forward;
+        }
+    &.is-leaving {
+        opacity: 0;
+        @include scale(0.9);
+        }
+    }
+.modal--padded {
+    padding-top: 63px;
+    }
+
+.modal__close:before {
+    content: $code_close;
+    }
+
+.modal__close--alt {
+    font-size: 10px;
+    font-weight: bold;
+    }
+
+.modal__scroll {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    }

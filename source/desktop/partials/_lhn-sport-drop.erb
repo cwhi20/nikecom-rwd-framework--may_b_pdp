@@ -1,0 +1,212 @@
+<nav class="navi navi--lefty js-navi js-navi--lefty" style="padding-top:24px;">
+    <div class="h2 margin-bottom--30 -font--20"><%= current_page.data.gender %></div>
+
+    <!-- Sport -->
+    <section class="margin-bottom--30">
+        <div class="select-menu select-menu--capsule p js-select-menu -text--left">
+            <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+                <span class="p--dark">Sport:</span>
+                <span class="select-menu__value js-select-menu-value"><%= current_page.data.category %></span>
+            </div>
+            <ul class="select-menu__list -border -text--left js-select-menu-list">
+                <% @cat_id = "All " + current_page.data.product %>
+                <li class="select-menu__item p p--dark js-select-menu-item <% if current_page.data.category == "All" %>is-active<% end %>" data-value="All">
+                    <a href="<% if @taxonomy_links[@cat_id] %><%= @taxonomy_links[@cat_id] %><% else %>#<% end %>" class="a--block">All</a>
+                </li>
+                <%
+                @categories.each do |sport|
+                    @cat_id = sport + " " + current_page.data.product
+                %>
+                    <li class="select-menu__item p p--dark js-select-menu-item <% if current_page.data.category == sport %>is-active<% end %>" data-value="<%= sport %>">
+                        <a href="<% if @taxonomy_links[@cat_id] %><%= @taxonomy_links[@cat_id] %><% else %>#<% end %>" class="a--block js-filter-params"><%= sport %></a>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <% if @products %>
+    <section class="margin-bottom--40">
+        <%
+        @products.each do |product, types|
+            @url = get_product_url( product )
+        %>
+        <div class="toggle js-toggle">
+            <a href="<%= @url %>" class="toggle__item toggle__item--padded p p--dark a--block <% if current_page.data.product == product %>is-active -bold<% end %> js-toggle-controller js-toggle-solo js-gridwall-product js-product-type"><%= product %></a>
+            <div class="toggle__menu toggle__menu--padded toggle__menu--products padding-left--10 <% if current_page.data.product == product %>is-active<% end %> js-toggle-menu">
+            <% if @products[product].length > 0 %>
+                <% @products[product].each do |type| %>
+                <div class="p p--dark -btn js-product-type-item"><%= type %></div>
+                <% end %>
+                <div class="padding-top--5"></div>
+            <% end %>
+            </div>
+        </div>
+        <% end %>
+    </section>
+    <% end %>
+
+    <!-- Filters -->
+    <div class="h3 h3--dark margin-bottom--30 -font--20">Filters</div>
+
+    <!-- Collections -->
+    <% if @collections %>
+    <div class="select-menu select-menu--capsule p margin-bottom--20 js-select-menu js-filter-set--select -text--left">
+        <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+            <span class="p--dark">Collections:</span>
+            <span class="select-menu__value js-select-menu-value">All</span>
+        </div>
+        <ul class="select-menu__list -border -text--left js-select-menu-list">
+            <% @collections.each do |collection| %>
+                <li class="select-menu__item p p--dark js-select-menu-item" data-key="collection" data-value="<%= collection.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>">
+                    <a href="#" class="a--block"><%= collection %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <!-- Best For -->
+    <% if current_page.data.product != "All" && @bestfor %>
+    <div class="select-menu select-menu--capsule p margin-bottom--20 js-select-menu js-filter-set--select -text--left">
+        <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+            <span class="p--dark">Best For:</span>
+            <span class="select-menu__value js-select-menu-value">All</span>
+        </div>
+        <ul class="select-menu__list -border -text--left js-select-menu-list">
+            <% @bestfor.each do |best| %>
+                <li class="select-menu__item p p--dark js-select-menu-item" data-key="bestfor" data-value="<%= best.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>">
+                    <a href="#" class="a--block"><%= best %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <!-- Occasion -->
+    <% if @occasion %>
+    <div class="select-menu select-menu--capsule p margin-bottom--20 js-select-menu js-filter-set--select -text--left">
+        <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+            <span class="p--dark">Occasion:</span>
+            <span class="select-menu__value js-select-menu-value">All</span>
+        </div>
+        <ul class="select-menu__list -border -text--left js-select-menu-list">
+            <% @occasion.each do |occasion| %>
+                <li class="select-menu__item p p--dark js-select-menu-item" data-key="occasion" data-value="<%= occasion.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>">
+                    <a href="#" class="a--block"><%= occasion %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <!-- Fit -->
+    <% if @fit %>
+    <div class="select-menu select-menu--capsule p margin-bottom--20 js-select-menu js-filter-set--select -text--left">
+        <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+            <span class="p--dark">Fit:</span>
+            <span class="select-menu__value js-select-menu-value">All</span>
+        </div>
+        <ul class="select-menu__list -border -text--left js-select-menu-list">
+            <% @fit.each do |fit| %>
+                <li class="select-menu__item p p--dark js-select-menu-item" data-key="fit" data-value="<%= fit.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>">
+                    <a href="#" class="a--block"><%= fit %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <!-- Surface -->
+    <% if @surface %>
+    <div class="select-menu select-menu--capsule p margin-bottom--20 js-select-menu js-filter-set--select -text--left">
+        <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+            <span class="p--dark">Surface:</span>
+            <span class="select-menu__value js-select-menu-value">All</span>
+        </div>
+        <ul class="select-menu__list -border -text--left js-select-menu-list">
+            <% @surface.each do |surface| %>
+                <li class="select-menu__item p p--dark js-select-menu-item" data-key="surface" data-value="<%= surface.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>">
+                    <a href="#" class="a--block"><%= surface %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <!-- League -->
+    <% if @league %>
+    <div class="select-menu select-menu--capsule p margin-bottom--20 is-hidden js-select-menu js-filter-set--select js-filter-set--hidden -text--left" data-key="occasion" data-value="Fan-Gear">
+        <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+            <span class="p--dark">League:</span>
+            <span class="select-menu__value js-select-menu-value">All</span>
+        </div>
+        <ul class="select-menu__list -border -text--left js-select-menu-list">
+            <% @league.each do |league| %>
+                <li class="select-menu__item p p--dark js-select-menu-item" data-key="league" data-value="<%= league.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>">
+                    <a href="#" class="a--block"><%= league %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <!-- Team -->
+    <% if @team %>
+    <div class="select-menu select-menu--capsule p margin-bottom--20 is-hidden js-select-menu js-filter-set--select js-filter-set--hidden -text--left" data-key="occasion" data-value="Fan-Gear">
+        <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+            <span class="p--dark">Team:</span>
+            <span class="select-menu__value js-select-menu-value">All</span>
+        </div>
+        <ul class="select-menu__list -border -text--left js-select-menu-list">
+            <% @team.each do |team| %>
+                <li class="select-menu__item p p--dark js-select-menu-item" data-key="team" data-value="<%= team.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>">
+                    <a href="#" class="a--block"><%= team %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <!-- Size -->
+    <% if current_page.data.product != "All" %>
+    <div class="select-menu select-menu--capsule p margin-bottom--20 js-select-menu js-filter-set--select -text--left">
+        <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+            <span class="p--dark">Size:</span>
+            <span class="select-menu__value js-select-menu-value">All</span>
+        </div>
+        <ul class="select-menu__list -border -text--left js-select-menu-list">
+            <% @sizes.each do |size| %>
+                <li class="select-menu__item p p--dark js-select-menu-item" data-key="size" data-value="<%= size.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>">
+                    <a href="#" class="a--block"><%= size %></a>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <!-- Color -->
+    <div class="select-menu select-menu--capsule p margin-bottom--50 js-select-menu js-filter-set--select -text--left">
+        <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+            <span class="p--dark">Color:</span>
+            <span class="select-menu__value js-select-menu-value">All</span>
+        </div>
+        <ul class="select-menu__list -border -text--left js-select-menu-list">
+            <% @colors.each do |color| %>
+                <li class="select-menu__item p p--dark js-select-menu-item" data-key="color" data-value="<%= color.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>">
+                    <a href="#" class="a--block"><%= color %></a>
+                </li>
+            <% end %>
+        </ul>
+        <a href="" class="a a--clean a--block margin-top--20 is-hidden -btn -font--12 js-filters-clear">Clear All Filters</a>
+    </div>
+
+    <!-- Featured -->
+    <section class="">
+        <div class="h3 h3--dark margin-bottom--20 -font--20">Featured</div>
+        <% @featured_category.each do |featured| %>
+        <div class="p p--dark -btn margin-bottom--10"><%= featured %></div>
+        <% end %>
+    </section>
+</nav>

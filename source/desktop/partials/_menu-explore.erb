@@ -1,0 +1,31 @@
+<div class="navi--main__menu js-navi-main-menu js-navi-main--explore">
+    <div class="list list--inline -text--center">
+        <div class="list--inline__item col--2of12 -push--1 -vertical--top -text--left -lineheight--2">
+            <div class="h2 margin-bottom--20">Sports</div>
+            <% @explore_sports.each do |sport| %>
+            <a href="#" class="a a--grey a--block a--clean"><%= sport %></a>
+            <% end %>
+        </div>
+        <div class="list--inline__item col--2of12 -vertical--top -text--left -lineheight--2">
+            <div class="h2 margin-bottom--20">Collections</div>
+            <% @explore_collections.each do |collection| %>
+            <a href="#" class="a a--grey a--block a--clean"><%= collection %></a>
+            <% end %>
+        </div>
+        <div class="list--inline__item col--2of12 -vertical--top -text--left -lineheight--2">
+            <div class="h2 margin-bottom--20">Featured</div>
+            <% @explore_featured.each do |feature| %>
+            <a href="#" class="a a--grey a--block a--clean"><%= feature %></a>
+            <% end %>
+        </div>
+    </div>
+    <div class="list list--inline margin-top--40 -text--center">
+        <div class="list--inline__item col--2of12 -push--1 -vertical--top -text--left">
+            <a href="#" class="a a--block">Shop all Sports</a>
+        </div>
+        <div class="list--inline__item col--2of12 -vertical--top -text--left">
+            <a href="#" class="a a--block">Shop all Collections</a>
+        </div>
+        <div class="list--inline__item col--2of12 -vertical--top -text--left">&nbsp;</div>
+    </div>
+</div>

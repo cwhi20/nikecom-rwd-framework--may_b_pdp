@@ -1,0 +1,13 @@
+<div class="select-menu select-menu--capsule select-menu--light p js-select-menu -text--left">
+    <div class="select-menu__field js-select-menu-field -arrow -arrow--down">
+        <span class="p--dark">Sort:</span>
+        <span class="select-menu__value js-select-menu-value">Newest</span>
+    </div>
+    <ul class="select-menu__list -border -text--left js-select-menu-list">
+        <% @sorting.each do |sort| %>
+            <li class="select-menu__item p p--dark js-select-menu-item <% if sort == "Newest" %>is-active<% end %>" data-value="<%= sort %>">
+                <a href="#" class="a--block js-filter-params"><%= sort %></a>
+            </li>
+        <% end %>
+    </ul>
+</div>

@@ -1,0 +1,169 @@
+<ul>
+    <!-- Sport -->
+    <li class="toggle js-toggle">
+        <div class="toggle__item button button--light-dark button--down -text--left -border--top js-toggle-controller js-toggle-solo">
+            <span>Sport</span>
+            <span class="p p--detail caps margin-right--50 -float--right js-toggle-meta"><% if current_page.data.category != "All" %><%= current_page.data.category %><% end %></span>
+        </div>
+        <ul class="toggle__menu js-toggle-menu">
+            <%
+            @categories.each do |sport|
+                @cat_id = sport + " " + current_page.data.product
+            %>
+            <li class="padding-left--30 padding-right--30 padding-top--10 padding-bottom--10 -font--13 js-category js-filter <% if current_page.data.category == sport %>is-active<% end %>" data-value="<%= sport %>">
+                <div class="a--block">
+                    <span class="js-value"><%= sport %></span>
+                    <span class="count -float--right js-count <% if current_page.data.category == sport %>is-active<% end %>">37</span>
+                </div>
+            </li>
+            <% end %>
+        </ul>
+    </li>
+
+    <!-- Products -->
+    <% if @products %>
+    <li class="toggle js-toggle">
+        <div class="toggle__item button button--light-dark button--down -text--left -border--top js-toggle-controller js-toggle-solo">
+            <span>Products</span>
+            <span class="p p--detail caps margin-right--50 -float--right js-toggle-meta"><% if current_page.data.product != "All" %><%= current_page.data.product %><% end %></span>
+        </div>
+        <ul class="toggle__menu js-toggle-menu">
+            <%
+            @products.each do |product, types|
+                @cat_id = current_page.data.category + " " + product
+            %>
+            <li class="padding-left--30 padding-right--30 padding-top--10 padding-bottom--10 -font--13 js-product js-filter <% if current_page.data.product == product %>is-active<% end %>" data-value="<%= product %>">
+                <div class="a--block">
+                    <span class="js-value"><%= product %></span>
+                    <span class="count -float--right js-count <% if current_page.data.product == product %>is-active<% end %>">37</span>
+                </div>
+            </li>
+            <% end %>
+        </ul>
+    </li>
+    <% end %>
+
+    <!-- Collections -->
+    <% if @collections %>
+    <li class="toggle js-toggle js-filter-set--mobile">
+        <div class="toggle__item button button--light-dark button--down -text--left -border--top js-toggle-controller js-toggle-solo">
+            <span>Collections</span>
+            <span class="p p--detail caps margin-right--50 -float--right js-toggle-meta"></span>
+        </div>
+        <ul class="toggle__menu bordered__element--quad js-toggle-menu">
+            <% @collections.each do |collection| %>
+            <li class="padding-left--30 padding-right--30 padding-top--10 padding-bottom--10 -font--13 js-filter" data-key="collection" data-value="<%= collection %>">
+                <span class="js-value"><%= collection %></span>
+                <span class="count -float--right js-count">37</span>
+            </li>
+            <% end %>
+        </ul>
+    </li>
+    <% end %>
+
+    <!-- Occasion -->
+    <% if @occasion %>
+    <li class="toggle js-toggle js-filter-set--mobile">
+        <div class="toggle__item button button--light-dark button--down -text--left -border--top js-toggle-controller js-toggle-solo">
+            <span>Occasion</span>
+            <span class="p p--detail caps margin-right--50 -float--right js-toggle-meta"></span>
+        </div>
+        <ul class="toggle__menu bordered__element--quad js-toggle-menu">
+            <% @occasion.each do |occasion| %>
+            <li class="padding-left--30 padding-right--30 padding-top--10 padding-bottom--10 -font--13 js-filter" data-key="occasion" data-value="<%= occasion %>">
+                <span class="js-value"><%= occasion %></span>
+                <span class="count -float--right js-count">37</span>
+            </li>
+            <% end %>
+        </ul>
+    </li>
+    <% end %>
+
+    <!-- Best For -->
+    <% if current_page.data.product != "All" && @bestfor %>
+    <li class="toggle js-toggle js-filter-set--mobile">
+        <div class="toggle__item button button--light-dark button--down -text--left -border--top js-toggle-controller js-toggle-solo">
+            <span>Best For</span>
+            <span class="p p--detail caps margin-right--50 -float--right js-toggle-meta"></span>
+        </div>
+        <ul class="toggle__menu js-toggle-menu">
+            <% @bestfor.each do |best| %>
+            <li class="padding-left--30 padding-right--30 padding-top--10 padding-bottom--10 -font--13 js-filter" data-key="bestfor" data-value="<%= best %>">
+                <span class="js-value"><%= best %></span>
+                <span class="count -float--right js-count">37</span>
+            </li>
+            <% end %>
+        </ul>
+    </li>
+    <% end %>
+
+    <!-- Fit -->
+    <% if @fit %>
+    <li class="toggle js-toggle js-filter-set--mobile">
+        <div class="toggle__item button button--light-dark button--down -text--left -border--top js-toggle-controller js-toggle-solo">
+            <span>Fit</span>
+            <span class="p p--detail caps margin-right--50 -float--right js-toggle-meta"></span>
+        </div>
+        <ul class="toggle__menu js-toggle-menu">
+            <% @fit.each do |fit| %>
+            <li class="padding-left--30 padding-right--30 padding-top--10 padding-bottom--10 -font--13 js-filter" data-key="fit" data-value="<%= fit %>">
+                <span class="js-value"><%= fit %></span>
+                <span class="count -float--right js-count">37</span>
+            </li>
+            <% end %>
+        </ul>
+    </li>
+    <% end %>
+
+    <!-- Surface -->
+    <% if @surface %>
+    <li class="toggle js-toggle js-filter-set--mobile">
+        <div class="toggle__item button button--light-dark button--down -text--left -border--top js-toggle-controller js-toggle-solo">
+            <span>Surface</span>
+            <span class="p p--detail caps margin-right--50 -float--right js-toggle-meta"></span>
+        </div>
+        <ul class="toggle__menu js-toggle-menu">
+            <% @surface.each do |surface| %>
+            <li class="padding-left--30 padding-right--30 padding-top--10 padding-bottom--10 -font--13 js-filter" data-key="surface" data-value="<%= surface %>">
+                <span class="js-value"><%= surface %></span>
+                <span class="count -float--right js-count">37</span>
+            </li>
+            <% end %>
+        </ul>
+    </li>
+    <% end %>
+
+    <!-- Size -->
+    <% if current_page.data.product != "All" %>
+    <li class="toggle js-toggle js-filter-set--mobile">
+        <div class="toggle__item button button--light-dark button--down -text--left -border--top js-toggle-controller js-toggle-solo">
+            <span>Size</span>
+            <span class="p p--detail caps margin-right--50 -float--right js-toggle-meta"></span>
+        </div>
+        <ul class="toggle__menu js-toggle-menu">
+            <% @sizes.each do |size| %>
+            <li class="padding-left--30 padding-right--30 padding-top--10 padding-bottom--10 -font--13 js-filter" data-key="size" data-value="<%= size %>">
+                <span class="js-value"><%= size %></span>
+                <span class="count -float--right js-count">37</span>
+            </li>
+            <% end %>
+        </ul>
+    </li>
+    <% end %>
+
+    <!-- Color -->
+    <li class="toggle js-toggle js-filter-set--mobile">
+        <div class="toggle__item button button--light-dark button--down -text--left -border--top js-toggle-controller js-toggle-solo">
+            <span>Color</span>
+            <span class="p p--detail caps margin-right--50 -float--right js-toggle-meta"></span>
+        </div>
+        <ul class="toggle__menu bordered__element--quad js-toggle-menu">
+            <% @colors.each do |color| %>
+            <li class="padding-left--30 padding-right--30 padding-top--10 padding-bottom--10 -font--13 js-filter" data-key="color" data-value="<%= color %>">
+                <span class="js-value"><%= color %></span>
+                <span class="count -float--right js-count">37</span>
+            </li>
+            <% end %>
+        </ul>
+    </li>
+</ul>

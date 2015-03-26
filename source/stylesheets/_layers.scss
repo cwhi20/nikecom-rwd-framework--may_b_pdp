@@ -1,0 +1,5 @@
+@each $layer in $z_layers {
+    .layer--#{$layer} {
+        z-index: $layer;
+        }
+}

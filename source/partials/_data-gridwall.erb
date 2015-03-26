@@ -1,0 +1,942 @@
+<%
+################################################################################
+# Shared
+################################################################################
+@image_path = "../../images/"
+
+if current_page.data.section == "mobile"
+    @image_path = "../images/"
+end
+
+@total_products = {
+    "All Shoes" => "814",
+    "Running Shoes" => "81",
+    "Soccer Shoes" => "85",
+    "All Shirts &amp; Tops" => "1,904",
+    "Running Shirts &amp; Tops" => "85",
+    "Soccer Shirts &amp; Tops" => "105",
+    "All Tops" => "925",
+    "Running All" => "366",
+    "Soccer All" => "345",
+    "All All" => "4,912"
+}
+
+@sorting = [
+    "Newest",
+    "Most Popular",
+    "Price $ - $$",
+    "Price $$ - $"
+]
+
+@colors = [
+    "Black",
+    "Grey",
+    "White",
+    "Blue",
+    "Red",
+    "Green",
+    "Orange",
+    "Yellow",
+    "Pink"
+]
+
+@featured_seasonal = [
+    "Seasonal Feature",
+    "Seasonal Feature",
+    "Seasonal Feature"
+]
+
+@featured_category = [
+    "Category Feature",
+    "Category Feature",
+    "Category Feature"
+]
+
+@singular_product_type = {
+    "Shoes" => "Shoe",
+    "Shirts &amp; Tops" => "Shirt"
+}
+
+@taxonomy_links = {
+    "Shoes" => "gridwall-mens-shoes.html",
+    "Shirts &amp; Tops" => "gridwall-mens-shirts.html",
+    "Running" => "gridwall-mens-running.html",
+    "Soccer" => "gridwall-mens-soccer.html",
+    "Running Shoes" => "gridwall-mens-running-shoes.html",
+    "Soccer Shoes" => "gridwall-mens-soccer-shoes.html",
+    "Running Shirts &amp; Tops" => "gridwall-mens-running-shirts.html",
+    "Soccer Shirts &amp; Tops" => "gridwall-mens-soccer-shirts.html",
+    "All Shoes" => "gridwall-mens-shoes.html",
+    "All Shirts &amp; Tops" => "gridwall-mens-shirts.html",
+    "All All" => "gridwall-mens-all.html",
+    "Running All" => "gridwall-mens-running.html",
+    "Soccer All" => "gridwall-mens-soccer.html"
+}
+
+
+@explore_sports = [
+    "Baseball &amp; Softball",
+    "Basketball",
+    "Football",
+    "Golf",
+    "Gym &amp; Training",
+    "Running",
+    "Snowboarding",
+    "Soccer",
+    "Surfing",
+    "Tennis"
+]
+
+@explore_collections = [
+    "Nike Sportswear",
+    "NikeLab",
+    "Customize with NikeiD"
+]
+
+@explore_featured = [
+    "New Releases",
+    "Launch Calendar",
+    "Fan Gear",
+    "Nike+"
+]
+
+@collections_global = [
+    "Nike Sportswear",
+    "NikeLab",
+    "Jordan"
+]
+
+
+
+################################################################################
+# Mens
+################################################################################
+@grid_shoes_mixed = [
+    {
+        "title" => "Nike Air Zoom Elite 7",
+        "price" => "$110",
+        "image" => @image_path + "gridwall/shoes/running1.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Magista Obra FG",
+        "price" => "$275",
+        "image" => @image_path + "gridwall/shoes/soccer1.jpg",
+        "category" => "Soccer"
+    }
+]
+
+@grid_shoes_running = [
+    {
+        "title" => "Nike Air Zoom Elite 7",
+        "price" => "$110",
+        "image" => @image_path + "gridwall/shoes/running1.jpg",
+        "category" => "Running"
+    }
+]
+
+@grid_shoes_soccer = [
+    {
+        "title" => "Nike Magista Obra FG",
+        "price" => "$275",
+        "image" => @image_path + "gridwall/shoes/soccer1.jpg",
+        "category" => "Soccer"
+    }
+]
+
+@grid_shirts_mixed = [
+    {
+        "title" => "Nike Dri-FIT Knit Long-Sleeve",
+        "price" => "$80",
+        "image" => @image_path + "gridwall/shirts/running1.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Graphic Flash Top",
+        "price" => "$45",
+        "image" => @image_path + "gridwall/shirts/soccer1.jpg",
+        "category" => "Soccer"
+    }
+]
+
+@grid_shirts_running = [
+    {
+        "title" => "Nike Dri-FIT Knit Long-Sleeve",
+        "price" => "$80",
+        "image" => @image_path + "gridwall/shirts/running1.jpg",
+        "category" => "Running"
+    }
+]
+
+@grid_shirts_soccer = [
+    {
+        "title" => "Nike Graphic Flash Top",
+        "price" => "$45",
+        "image" => @image_path + "gridwall/shirts/soccer1.jpg",
+        "category" => "Soccer"
+    }
+]
+
+@categories_mens = [
+    "Baseball &amp; Softball",
+    "Basketball",
+    "Football",
+    "Golf",
+    "Gym &amp; Training",
+    "Jordan",
+    "Running",
+    "Skateboarding",
+    "Snowboarding",
+    "Soccer",
+    "Surfing",
+    "Tennis"
+]
+
+@sizes_shoes = [
+    "4",
+    "4.5",
+    "5",
+    "5.5",
+    "6",
+    "6.5",
+    "7",
+    "7.5",
+    "8",
+    "8.5",
+    "9",
+    "9.5",
+    "10",
+    "10.5",
+    "11",
+    "11.5",
+    "12",
+    "12.5",
+    "13",
+    "13.5",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19"
+]
+
+@sizes_clothing = [
+    "X-Small",
+    "Small",
+    "Medium",
+    "Large",
+    "X-Large",
+    "2X-Large",
+    "3X-Large",
+    "4X-Large"
+]
+
+@bestfor_shirts = [
+    "Staying Warm",
+    "Staying Cool",
+    "Staying Dry"
+]
+
+@bestfor_running_shoes = [
+    "Barefoot-Like Ride",
+    "Neutral Ride",
+    "Stability",
+    "Trail",
+    "Racing"
+]
+
+@bestfor_running_shirts = [
+    "Staying Warm",
+    "Staying Cool",
+    "Staying Dry"
+]
+
+@bestfor_soccer_shirts = [
+    "Staying Warm",
+    "Staying Cool",
+    "Staying Dry"
+]
+
+@fit_running_shirts = [
+    "Fitted",
+    "Slim",
+    "Regular"
+]
+
+@fit_shirts = [
+    "Compression",
+    "Fitted",
+    "Slim",
+    "Regular"
+]
+
+@surface_soccer_shoes = [
+    "Artificial Grass",
+    "Firm Ground",
+    "Indoor &amp; Turf",
+    "Soft Ground"
+]
+
+@occasion_shirts = [
+    "Peformance",
+    "Style",
+    "Fan Gear"
+]
+
+@occasion_running = [
+    "Peformance",
+    "Style"
+]
+
+@occasion_soccer = [
+    "Peformance",
+    "Style",
+    "Fan Gear"
+]
+
+@team_soccer_shirts = [
+    "Barcelona",
+    "Manchester United",
+    "Brasil",
+    "Spain",
+    "USA"
+]
+
+@league_soccer_shirts = [
+    "League 1",
+    "League 2",
+    "League 3",
+    "League 4",
+    "League 5"
+]
+
+@collections_shoes = [
+    "Nike Zoom",
+    "Nike Air Max",
+    "Nike Lunarlon",
+    "Nike Free",
+    "Nike Flyknit",
+    "Flight Plate",
+    "Nike Flywire",
+    "Hyperfuse",
+    "Hyperscreen",
+    "Nike Air",
+    "Nike Drag-On",
+    "Nike Power platform",
+    "Nike Power Transfer Zone",
+    "Nike Shox"
+]
+
+@collections_shoes_running = [
+    "Nike Zoom",
+    "Nike Air Max",
+    "Nike Lunarlon",
+    "Nike Free",
+    "Nike Flyknit",
+    "Nike Flywire",
+    "Nike Air"
+]
+
+@collections_shoes_soccer = [
+    "Mercurial",
+    "Tiempo",
+    "Hypervenom",
+    "Magista"
+]
+
+@products_mens = {
+    "Shoes" => [
+        "Performance",
+        "Cleats &amp; Spikes",
+        "Style",
+        "Boots",
+        "Sandals &amp; Flip Flops",
+        "Customize with NIKEiD",
+        "Fan Gear"
+    ],
+    "Base Layer" => [
+        "Tops",
+        "Bottoms"
+    ],
+    "Shirts &amp; Tops" => [
+        "Long-sleeved",
+        "Short-sleeved",
+        "Sleeveless/Tanks",
+        "Polos",
+        "Jerseys",
+        "Thermals &amp; Flannels"
+    ],
+    "Hoodies &amp; Pullovers" => [
+        "Half-Zip",
+        "Full-Zip",
+        "Pullover"
+    ],
+    "Outerwear" => [
+        "Jackets",
+        "Vests"
+    ],
+    "Pants &amp; Tights" => [
+        "Cropped",
+        "Full-Length"
+    ],
+    "Shorts" => [],
+    "Surf &amp; Swimwear" => [
+        "Swim Suits",
+        "Wet Suits",
+        "Rash Guards",
+        "Shorts",
+        "Booties"
+    ],
+    "Accessories &amp; Equipment" => [
+        "Socks",
+        "Hats, Visors &amp; Headbands",
+        "Bags &amp; Backpacks",
+        "Balls",
+        "Bats",
+        "Belts",
+        "Fitness &amp; Training",
+        "Gloves &amp; Mitts",
+        "Golf Clubs",
+        "Nike+ Accessories",
+        "Scarves",
+        "Shin Guards",
+        "Shoelaces",
+        "Sleeves &amp; Arm Bands",
+        "Sunglasses",
+        "Swim Goggles &amp; Caps",
+        "Other",
+        "Customize with NIKEiD"
+    ],
+    "Clearance" => [
+        "Shoes",
+        "Base Layer",
+        "Shirts &amp; Tops",
+        "Hoodies &amp; Pullovers",
+        "Outerwear",
+        "Pants &amp; Tights",
+        "Shorts",
+        "Surf &amp; Swimwear",
+        "Accessories &amp; Equipment"
+    ]
+}
+
+@products_mens_running = {
+    "Shoes" => [
+        "Performance",
+        "Cleats &amp; Spikes",
+        "Style",
+        "Customize with NIKEiD"
+    ],
+    "Base Layer" => [
+        "Tops",
+        "Bottoms"
+    ],
+    "Shirts &amp; Tops" => [
+        "Long-sleeved",
+        "Short-sleeved",
+        "Sleeveless/Tanks"
+    ],
+    "Hoodies &amp; Pullovers" => [
+        "Half-zip",
+        "Full-zip",
+        "Pullover"
+    ],
+    "Outerwear" => [
+        "Jackets",
+        "Vests"
+    ],
+    "Pants &amp; Tights" => [
+        "Cropped",
+        "Full-length"
+    ],
+    "Shorts" => [],
+    "Accessories &amp; Equipment" => [
+        "Socks",
+        "Hats, Visors &amp; Headbands",
+        "Bags &amp; Backpacks",
+        "Fitness &amp; Training",
+        "Gloves",
+        "Nike+ Accessories",
+        "Shoelaces",
+        "Sleeves &amp; Arm Bands",
+        "Sunglasses",
+        "Other"
+    ],
+    "Clearance" => []
+}
+
+@products_mens_soccer = {
+    "Shoes" => [
+        "Performance",
+        "Cleats &amp; Spikes",
+        "Style",
+        "Fan Gear",
+        "Customize with NIKEID"
+    ],
+    "Base Layer" => [
+        "Tops",
+        "Bottoms"
+    ],
+    "Shirts &amp; Tops" => [
+        "Long-sleeved",
+        "Short-sleeved",
+        "Sleeveless/Tanks"
+    ],
+    "Outerwear" => [
+        "Jackets",
+        "Vests"
+    ],
+    "Pants &amp; Tights" => [],
+    "Shorts" => [],
+    "Accessories &amp; Equipment" => [
+        "Socks",
+        "Hats, Visors &amp; Headbands",
+        "Bags &amp; Backpacks",
+        "Balls",
+        "Fitness &amp; Training",
+        "Gloves &amp; Mitts",
+        "Nike+ Accessories",
+        "Scarves",
+        "Shin Guards",
+        "Other"
+    ],
+    "Clearance" => []
+}
+
+
+
+################################################################################
+# Womens
+################################################################################
+@categories_womens = [
+    "Baseball &amp; Softball",
+    "Basketball",
+    "Football",
+    "Golf",
+    "Gym &amp; Training",
+    "Running",
+    "Snowboarding",
+    "Soccer",
+    "Surfing",
+    "Tennis"
+]
+
+@bestfor_womens_tops = [
+    "Staying Cool",
+    "Staying Warm",
+    "Style / Sportswear",
+    "Weather Protection",
+    "Wicking Sweat"
+]
+
+@sizes_womens_tops = [
+    "X-Small",
+    "Small",
+    "Medium",
+    "Large",
+    "X-Large"
+]
+
+@products_womens = {
+    "Shoes" => [
+        "Performance / Trainers",
+        "Cleats &amp; Spikes",
+        "Style",
+        "Boots",
+        "Wedges",
+        "Sandals &amp; Flip Flops",
+        "Customize with NIKEiD",
+        "Fan Gear"
+    ],
+    "Sports Bras" => [
+        "Light Support",
+        "Medium Support",
+        "High Support"
+    ],
+    "Shirts &amp; Tops" => [
+        "Long-sleeved",
+        "Short-sleeved",
+        "Tanks &amp; Camis",
+        "Polos",
+        "Jerseys",
+        "Thermals &amp; Flannels"
+    ],
+    "Hoodies &amp; Pullovers" => [
+        "Half-Zip",
+        "Full-Zip",
+        "Pullover"
+    ],
+    "Outerwear" => [],
+    "Pants &amp; Tights" => [
+        "Capris",
+        "Crops",
+        "Full-Length"
+    ],
+    "Shorts" => [],
+    "Skirts &amp; Dresses" => [],
+    "Surf &amp; Swimwear" => [
+        "Tops",
+        "Bottoms",
+        "One Pieces",
+        "Wet Suits",
+        "Rash Guards",
+        "Booties"
+    ],
+    "Accessories &amp; Equipment" => [
+        "Bags &amp; Backpacks",
+        "Balls",
+        "Belts",
+        "Fitness &amp; Training",
+        "Gloves &amp; Mitts",
+        "Golf Clubs",
+        "Hats, Visors &amp; Headbands",
+        "Nike+ Accessories",
+        "Scarves",
+        "Shin Guards",
+        "Shoelaces",
+        "Sleeves &amp; Arm Bands",
+        "Socks",
+        "Sunglasses",
+        "Swim Goggles &amp; Caps",
+        "Other",
+        "Customize with NIKEiD"
+    ],
+    "Clearance" => [
+        "Shoes",
+        "Sports Bras",
+        "Shirts &amp; Tops",
+        "Hoodies &amp; Pullovers",
+        "Outerwear",
+        "Pants &amp; Tights",
+        "Shorts",
+        "Skirts &amp; Dresses",
+        "Surf &amp; Swimwear",
+        "Accessories &amp; Equipment"
+    ]
+}
+
+@grid_womens_tops = [
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/1.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/3.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/5.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/7.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/9.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/11.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/13.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/15.jpg",
+        "category" => "Running"
+    }
+]
+
+@grid_womens_bottoms = [
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/2.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/4.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/6.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/8.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/10.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/12.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/14.jpg",
+        "category" => "Running"
+    },
+    {
+        "title" => "Nike Product Name",
+        "price" => "$110",
+        "image" => "../../images/gridwall/16.jpg",
+        "category" => "Running"
+    }
+]
+
+
+
+################################################################################
+# Define for page use
+################################################################################
+if current_page.data.product == "Shoes"
+    @sizes = @sizes_shoes
+end
+if current_page.data.product == "Shirts &amp; Tops"
+    @sizes = @sizes_clothing
+end
+if current_page.data.product == "Tops"
+    @sizes = @sizes_womens_tops
+end
+
+if current_page.data.product == "Shirts &amp; Tops" && current_page.data.category == "All"
+    @bestfor = @bestfor_shirts
+end
+if current_page.data.product == "Shirts &amp; Tops" && current_page.data.category == "Soccer"
+    @bestfor = @bestfor_soccer_shirts
+end
+if current_page.data.product == "Shirts &amp; Tops" && current_page.data.category == "Running"
+    @bestfor = @bestfor_running_shirts
+end
+if current_page.data.product == "Shoes" && current_page.data.category == "Running" && request.params.collection
+    @bestfor = @bestfor_running_shoes
+end
+if current_page.data.product == "Tops"
+    @bestfor = @bestfor_womens_tops
+end
+
+if current_page.data.product == "Shoes" && current_page.data.category == "Soccer"
+    @surface = @surface_soccer_shoes
+end
+
+if current_page.data.product == "Shirts &amp; Tops"
+    @occasion = @occasion_shirts
+end
+#if current_page.data.category == "Running"
+#    @occasion = @occasion_running
+#end
+if current_page.data.category == "Soccer" && current_page.data.product != "Shoes"
+    @occasion = @occasion_soccer
+end
+
+if current_page.data.gender == "Men&rsquo;s"
+    @products = @products_mens 
+end
+if current_page.data.gender == "Women&rsquo;s"
+    @products = @products_womens
+end
+if current_page.data.category == "Running"
+    @products = @products_mens_running 
+end
+if current_page.data.category == "Soccer"
+    @products = @products_mens_soccer 
+end
+
+if current_page.data.gender == "Men&rsquo;s"
+    @categories = @categories_mens
+end
+if current_page.data.gender == "Women&rsquo;s"
+    @categories = @categories_womens
+end
+
+if current_page.data.product == "Shoes" && current_page.data.category == "Running"
+    @collections = @collections_shoes_running
+end
+if current_page.data.product == "Shoes" && current_page.data.category == "Soccer"
+    @collections = @collections_shoes_soccer
+end
+if current_page.data.product == "Shoes" && current_page.data.category == "All"
+    @collections = @collections_shoes
+end
+
+if current_page.data.product == "Shirts &amp; Tops" && current_page.data.category == "All"
+    @fit = @fit_shirts
+end
+if current_page.data.product == "Shirts &amp; Tops" && current_page.data.category == "Running"
+    @fit = @fit_running_shirts
+end
+if current_page.data.product == "Shirts &amp; Tops" && current_page.data.category == "Soccer"
+    @fit = @fit_shirts
+end
+
+if current_page.data.category == "Soccer" && current_page.data.product == "Shirts &amp; Tops"
+    @team = @team_soccer_shirts
+    @league = @league_soccer_shirts
+end
+
+
+@tax_cat = current_page.data.category
+
+if current_page.data.categories
+    @tax_cat = current_page.data.categories[0]
+end
+
+if current_page.data.categories
+    @cats = current_page.data.categories
+else
+    @cats = [current_page.data.category]
+end
+
+
+if @tax_cat
+    @total_id = @tax_cat + " " + current_page.data.product
+end
+
+
+
+################################################################################
+# Define method for getting sport urls
+################################################################################
+def get_product_url( product )
+    @url = "#"
+
+    if @cats.length == 2 && product == "Shoes"
+        @url = "gridwall-mens-running-and-soccer-shoes.html"
+    end
+    if @cats.length == 2 && product == "Shirts &amp; Tops"
+        @url = "gridwall-mens-running-and-soccer-shirts.html"
+    end
+    if @cats.length == 1 && product == "Shoes" && current_page.data.category == "Running"
+        @url = "gridwall-mens-running-shoes.html"
+    end
+    if @cats.length == 1 && product == "Shirts &amp; Tops" && current_page.data.category == "Running"
+        @url = "gridwall-mens-running-shirts.html"
+    end
+    if @cats.length == 1 && product == "Shoes" && current_page.data.category == "Soccer"
+        @url = "gridwall-mens-soccer-shoes.html"
+    end
+    if @cats.length == 1 && product == "Shirts &amp; Tops" && current_page.data.category == "Soccer"
+        @url = "gridwall-mens-soccer-shirts.html"
+    end
+    if current_page.data.category == "All" && product == "Shoes"
+        @url = "gridwall-mens-shoes.html"
+    end
+    if current_page.data.category == "All" && product == "Shirts &amp; Tops"
+        @url = "gridwall-mens-shirts.html"
+    end
+
+    return @url
+end
+
+def get_sport_url( sport )
+    @url = "#"
+
+    # Handles adding a filter
+    if current_page.data.product == "Shoes" && current_page.data.category == "Running" && sport == "Soccer"
+        @url = "gridwall-mens-running-and-soccer-shoes.html"
+    end
+    if current_page.data.product == "Shirts &amp; Tops" && current_page.data.category == "Running" && sport == "Soccer"
+        @url = "gridwall-mens-running-and-soccer-shirts.html"
+    end
+    if current_page.data.product == "Shoes" && current_page.data.category == "Soccer" && sport == "Running"
+        @url = "gridwall-mens-running-and-soccer-shoes.html"
+    end
+    if current_page.data.product == "Shirts &amp; Tops" && current_page.data.category == "Soccer" && sport == "Running"
+        @url = "gridwall-mens-running-and-soccer-shirts.html"
+    end
+    if current_page.data.category == "Soccer" && current_page.data.product == "All" && sport == "Running"
+        @url = "gridwall-mens-running-and-soccer.html"
+    end
+    if current_page.data.category == "Running" && current_page.data.product == "All" && sport == "Soccer"
+        @url = "gridwall-mens-running-and-soccer.html"
+    end
+    if current_page.data.category == "Soccer" && current_page.data.product == "All" && sport == "Soccer"
+        @url = "gridwall-mens-all.html"
+    end
+    if current_page.data.category == "Running" && current_page.data.product == "All" && sport == "Running"
+        @url = "gridwall-mens-all.html"
+    end
+    if current_page.data.category == "All" && (sport == "Soccer" || sport == "Running")
+        @cat_id = sport + " " + current_page.data.product
+        @url = @taxonomy_links[@cat_id]
+    end
+
+    # Handles adding filter when on All Mens
+    if current_page.data.category == "All" && current_page.data.product == "All" && sport == "Running"
+        @url = "gridwall-mens-running.html"
+    end
+    if current_page.data.category == "All" && current_page.data.product == "All" && sport == "Soccer"
+        @url = "gridwall-mens-soccer.html"
+    end
+
+    # Handles removing a filter when multi-sport selected
+    if @cats.length == 2 && sport == "Running" && current_page.data.product == "Shoes" 
+        @url = "gridwall-mens-soccer-shoes.html"
+    end
+    if @cats.length == 2 && sport == "Soccer" && current_page.data.product == "Shoes" 
+        @url = "gridwall-mens-running-shoes.html"
+    end
+    if @cats.length == 2 && sport == "Running" && current_page.data.product == "Shirts &amp; Tops" 
+        @url = "gridwall-mens-soccer-shirts.html"
+    end
+    if @cats.length == 2 && sport == "Soccer" && current_page.data.product == "Shirts &amp; Tops" 
+        @url = "gridwall-mens-running-shirts.html"
+    end
+    if @cats.length == 2 && sport == "Running" && current_page.data.product == "All" 
+        @url = "gridwall-mens-soccer.html"
+    end
+    if @cats.length == 2 && sport == "Soccer" && current_page.data.product == "All" 
+        @url = "gridwall-mens-running.html"
+    end
+
+    # Handles removing a filter when one sport is selected
+    if @cats.length == 1 && @cats[0] == "Running" && sport == "Running" && current_page.data.product == "Shoes" 
+        @url = "gridwall-mens-shoes.html"
+    end
+    if @cats.length == 1 && @cats[0] == "Soccer" && sport == "Soccer" && current_page.data.product == "Shoes" 
+        @url = "gridwall-mens-shoes.html"
+    end
+    if @cats.length == 1 && @cats[0] == "Running" && sport == "Running" && current_page.data.product == "Shirts &amp; Tops" 
+        @url = "gridwall-mens-shirts.html"
+    end
+    if @cats.length == 1 && @cats[0] == "Soccer" && sport == "Soccer" && current_page.data.product == "Shirts &amp; Tops" 
+        @url = "gridwall-mens-shirts.html"
+    end
+
+    return @url
+end
+%>

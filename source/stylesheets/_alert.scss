@@ -1,0 +1,27 @@
+.alert {
+    @include transition(opacity $base_transition_duration0 ease);
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    left: 0;
+    padding: $base_padding_general;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: $z_layer_hidden;
+    -webkit-backface-visibility: hidden;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+        z-index: $z_layer_forward + 1;
+        }
+    &.is-leaving {
+        opacity: 0;
+        }
+    }
+.alert__box {
+    background-color: $color_white;
+    text-align: center;
+    }

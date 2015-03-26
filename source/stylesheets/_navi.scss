@@ -1,0 +1,117 @@
+.navi-mobile {}
+
+.navi--lefty {
+    float: left;
+    min-height: 100%;
+    position: relative;
+    width: $grid_nav_width;
+    }
+
+.navi--main {
+    opacity: 0;
+    @include transform(translate3d(0, $page_header_full_height, 0));
+    @include transition(opacity $base_transition_duration1 ease);
+    @include box-shadow(0 5px 5px rgba(0, 0, 0, 0.05));
+    background-color: $color_white;
+    border-top: 1px solid $color_border_grey;
+    left: 0;
+    overflow: hidden;
+    padding: 40px 0;
+    position: absolute;
+    right: 0;
+    top: 1px;
+    visibility: hidden;
+    z-index: $z_layer_hidden;
+
+    &.is-fixed {
+        @include transform(translate3d(0, $page_header_main_height, 0));
+        border-bottom: 1px solid $color_border_grey;
+        position: fixed;
+        top: 0;
+        }
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+        z-index: $z_layer_01;
+        }
+    &.is-leaving {
+        opacity: 0;
+        }
+    }
+
+.sport-col {
+    position: relative;
+    z-index: 2;
+
+    &:before {
+        background-color: $color_background_grey;
+        bottom: -100%;
+        content: "";
+        left: -40px;
+        position: absolute;
+        right: 0;
+        top: -40px;
+        z-index: -1;
+        }
+    &:after {
+        background-color: $color_background_grey;
+        bottom: -100%;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: -9999px;
+        top: -40px;
+        z-index: -1;
+        }
+    }
+
+.navi--main a {
+    display: block;
+    }
+.navi--main__list {
+    line-height: 1.833333 !important;
+    }
+.navi--main__menu {
+    opacity: 0;
+    height: 100%;
+    margin: 0 auto;
+    max-width: $grid_min_width;
+    position: relative;
+    visibility: hidden;
+    width: 100%;
+    z-index: $z_layer_hidden;
+
+    &.is-absolute {
+        left: calc( (100% - #{$grid_min_width}) / 2 );
+        position: absolute;
+        top: 40px;
+        }
+    &.is-active {
+        opacity: 1;
+        left: auto;
+        position: relative;
+        top: auto;
+        visibility: visible;
+        z-index: $z_layer_10;
+        }
+    &.is-leaving {
+        opacity: 0;
+        left: calc( (100% - #{$grid_min_width}) / 2 );
+        position: absolute;
+        top: 40px;
+        }
+    }
+
+.navi__fade {
+    @include transition(opacity $base_transition_duration1 ease);
+
+    &.is-inactive {
+        opacity: 0;
+        }
+    }
+
+@media only screen and ( max-width: $grid_min_width ) {
+    .navi--main__menu.is-leaving {
+        left: 0;
+        }
+}

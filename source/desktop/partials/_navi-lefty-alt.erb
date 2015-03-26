@@ -1,0 +1,47 @@
+<nav class="navi navi--lefty padding-bottom--50 padding-top--50 js-navi js-navi--lefty -lineheight--open">
+    <!-- Where -->
+    <section style="margin-bottom:17px;">
+        <div class="h2 h2--title">Women&rsquo;s</div>
+        <div class="p"><%= @total_products %></div>
+    </section>
+
+    <!-- Sport -->
+    <section class="margin-bottom--10">
+        <div class="toggle js-toggle">
+            <div class="toggle__item h3 h3--dark <% if current_page.data.category == "All" %>is-active<% end %> js-toggle-controller">
+                <span class="span">Sport</span>
+                <span class="toggle__icon span margin-left--10 icon icon--plus-sign <% if current_page.data.category == "All" %>icon--minus-sign<% end %> js-toggle-icon -font--10"></span>
+            </div>
+            <div class="toggle__menu <% if current_page.data.category == "All" %>is-active<% end %> js-toggle-menu">
+                <% @categories.each do |sport| %>
+                <div class="p -btn <% if current_page.data.category == sport %>-dark<% end %> js-gridwall-category"><%= sport %></div>
+                <% end %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="margin-bottom--10">
+        <div class="h3 h3--dark">Products</div>
+        <% @products.each do |product, types| %>
+        <div class="toggle js-toggle">
+            <div class="toggle__item p <% if current_page.data.product == product %>is-active -dark<% end %> js-toggle-controller js-toggle-solo js-gridwall-product">
+                <span class="span"><%= product %></span>
+            </div>
+            <div class="toggle__menu padding-left--20 <% if current_page.data.product == product %>is-active<% end %> js-toggle-menu">
+                <% @products[product].each do |type| %>
+                <div class="p p--grey -btn"><%= type %></div>
+                <% end %>
+            </div>
+        </div>
+        <% end %>
+    </section>
+
+    <!-- Featured -->
+    <section class="margin-bottom--10">
+        <div class="h3 h3--dark">Featured</div>
+        <% @featured.each do |feature| %>
+        <div class="p -btn"><%= feature %></div>
+        <% end %>
+    </section>
+</nav>

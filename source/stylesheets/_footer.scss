@@ -1,0 +1,34 @@
+.footer {}
+
+.footer--full {
+    background-color: $color_dark;
+    }
+
+.footer--full__main {
+    line-height: 1.833333;
+    }
+
+.footer--full__aside {
+    border-top: 1px solid $color_border_grey_dark;
+    }
+
+.footer--full__h2 {
+    color: $color_white;
+    display: block;
+    font-family: $font_trade_gothic_20;
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    }
+
+.footer--full__link {
+    color: #999;
+    display: block;
+    font-size: 12px;
+    }
+
+.footer--full__list {
+    padding: 60px 0;
+    }

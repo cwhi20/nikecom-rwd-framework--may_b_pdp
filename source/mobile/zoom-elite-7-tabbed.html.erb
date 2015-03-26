@@ -1,0 +1,31 @@
+---
+title: Zoom Elite 7 Tabbed // Nike Mobile Prototype
+model: tabbed
+pdp: elite
+---
+<section class="pdp js-pdp">
+    <%= partial "mobile/partials/elite-header" %>
+    <ul class="tabs -clear -border--top js-tabs">
+        <li class="tab p col col--6of12 padding--20 -float--left -text--center js-tab-controller" data-target=".js-tab--shop">Shop</li>
+        <li class="tab p col col--6of12 padding--20 -float--left -text--center js-tab-controller" data-target=".js-tab--explore">Story</li>
+    </ul>
+
+    <!-- Tabs -->
+    <div class="views js-tab-views">
+        <div class="view js-tab-view js-tab--shop">
+            <%= partial "mobile/partials/elite-upper" %>
+            <%= partial "mobile/partials/elite-features" %>
+            <%= partial "mobile/partials/elite-details" %>
+            <%= partial "mobile/partials/elite-lower" %>
+        </div>
+        <div class="view js-tab-view js-tab--explore">
+            <%= partial "mobile/partials/story-btc" %>
+        </div>
+    </div>
+
+    <!-- Buy controls slides -->
+    <%= partial "mobile/partials/elite-buy-control-slides" %>
+
+    <!-- Help slides -->
+    <%= partial "mobile/partials/elite-help-slides" %>
+</section>

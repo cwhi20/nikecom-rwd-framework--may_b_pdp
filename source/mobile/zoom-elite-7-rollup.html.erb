@@ -1,0 +1,23 @@
+---
+title: Zoom Elite 7 Doorway // Nike Mobile Prototype
+model: rollup
+pdp: elite
+---
+<section class="pdp js-pdp">
+    <%= partial "mobile/partials/elite-header" %>
+    <%= partial "mobile/partials/elite-upper" %>
+
+    <div class="button button--light-dark button--right -text--left -border--top js-slide-controller" data-target=".js-slide--features">Top Features</div>
+    <div class="button button--light-dark button--right -text--left -border--top js-slide-controller" data-target=".js-slide--details">Full Details</div>
+
+    <%= partial "mobile/partials/elite-lower" %>
+
+    <!-- Buy controls slides -->
+    <%= partial "mobile/partials/elite-buy-control-slides" %>
+
+    <!-- Help slides -->
+    <%= partial "mobile/partials/elite-help-slides" %>
+
+    <!-- Bowerman track club slide -->
+    <%= partial "mobile/partials/elite-bowerman-slide" %>
+</section>

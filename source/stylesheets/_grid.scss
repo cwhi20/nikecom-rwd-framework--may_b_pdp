@@ -1,0 +1,145 @@
+// grid
+.grid {
+    position: relative;
+    }
+
+// col
+.col {
+    float: left;
+    position: relative;
+    width: 100%;
+    }
+
+// container
+.container {
+    margin: 0 auto;
+    padding-left: 80px;
+    padding-right: 80px;
+    position: relative;
+    width: 100%;
+    }
+.container--padd {
+    padding-left: 100px;
+    padding-right: 100px;
+    }
+.container--wide {
+    padding-left: 30px;
+    padding-right: 30px;
+    }
+
+// content
+.cont {
+    float: right;
+    width: calc( 100% - #{$grid_nav_width} );
+    }
+
+// gridwall
+.gridwall {
+    margin: 0 -10px;
+    position: relative;
+    }
+.gridwall__col {
+    width: 25%;
+    }
+.gridwall__nfo {}
+
+// col: main
+@each $col in $grid_columns {
+    .col--#{$col}of#{$grid_length} {
+        width: percentage( $col / $grid_length );
+        }
+}
+
+// col: extras
+.col--1of8 { width: 12.5%; }
+.col--1of4 { width: 25%; }
+.col--2of4 { width: 50%; }
+.col--3of4 { width: 75%; }
+.col--1of5 { width: 20%; }
+.col--2of5 { width: 40%; }
+.col--3of5 { width: 60%; }
+.col--4of5 { width: 80%; }
+
+// col: push
+@each $col in $grid_columns {
+    .-push--#{$col} {
+        margin-left: percentage( $col / $grid_length );
+        }
+}
+
+// col: pull
+@each $col in $grid_columns {
+    .-pull--#{$col} {
+        margin-left: -( percentage( $col / $grid_length ) );
+        }
+}
+
+// col: prepend
+@each $col in $grid_columns {
+    .-prepend--#{$col} {
+        margin-top: percentage( $col / $grid_length );
+        }
+}
+
+// col: append
+@each $col in $grid_columns {
+    .-append--#{$col} {
+        margin-bottom: percentage( $col / $grid_length );
+        }
+}
+
+
+// container responsive
+@media only screen and ( min-width: $grid_min_width ) {
+    .container:not(.container--wide) {
+        width: $grid_min_width;
+        }
+}
+
+@media only screen and ( min-width: ($grid_min_width + 160px) ) {
+    .container:not(.container--wide) {
+        padding-left: 0;
+        padding-right: 0;
+        }
+}
+
+@media only screen and ( max-width: $break_mobile_full ) {
+    .container:not(.container--wide) {
+        padding-left: 0;
+        padding-right: 0;
+        }
+}
+
+@media only screen and ( max-width: (1940px + 200px) ) {
+    .container--padd {
+        max-width: $grid_min_width;
+        }
+}
+
+@media only screen and ( max-width: ($grid_min_width + 200px) ) {
+    .container--padd {
+        max-width: 100%;
+        padding: 0 100px;
+        width: 100%;
+        }
+}
+
+
+// gridwall responsive
+@media only screen and ( max-width: $break_tablet_medium ) {
+    .gridwall__col {
+        width: 33.33333%;
+        }
+}
+
+@media only screen and ( max-width: $break_mobile_full ) {
+    .col--stack-small {
+        display: block;
+        float: none;
+        width: 100%;
+        }
+
+    .gridwall__col {
+        width: 100%;
+        }
+}

@@ -1,0 +1,49 @@
+.zoomicon {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    z-index: $z_layer_03;
+    }
+// Greensock Draggable gets a mighty high zindex, so...
+.zoomicon--close {
+    font-size: 24px;
+    z-index: ($z_layer_forward + $z_layer_forward);
+    }
+
+.zoompane {
+    opacity: 0;
+    @include transition(opacity $base_transition_duration1 ease, transform $base_transition_duration1 ease);
+    @include scale(0.9);
+    background-color: $color_background_grey_dark;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    visibility: hidden;
+    z-index: $z_layer_hidden;
+
+    &.is-active {
+        opacity: 1;
+        @include scale(1);
+        visibility: visible;
+        z-index: $z_layer_10;
+        }
+    &.is-leaving {
+        opacity: 0;
+        @include scale(0.9);
+        }
+    }
+.zoompane__img {
+    opacity: 0;
+    @include transition(opacity $base_transition_duration1 ease);
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    &.is-active {
+        opacity: 1;
+        }
+    }

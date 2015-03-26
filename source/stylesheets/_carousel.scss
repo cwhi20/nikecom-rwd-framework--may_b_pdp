@@ -1,0 +1,192 @@
+.carousel {
+    overflow: hidden;
+    position: relative;
+    }
+
+.carousel__collection {
+    height: 100%;
+    position: relative;
+    z-index: $z_layer_01;
+    }
+
+.carousel__pullout__item,
+.carousel__collection__item {
+    opacity: 0;
+    @include transition(opacity $base_transition_duration1 ease, visibility $base_transition_duration1 ease);
+    background-color: $color_background_grey;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: $z_layer_hidden;
+
+    &.is-active {
+        opacity: 1;
+        display: block;
+        position: relative;
+        visibility: visible;
+        z-index: $z_layer_02;
+        }
+
+    &.is-exiting {
+        opacity: 0;
+        display: block;
+        visibility: visible;
+        z-index: $z_layer_02;
+        }
+
+    &.is-entering {
+        opacity: 1;
+        display: block;
+        position: relative;
+        visibility: visible;
+        z-index: $z_layer_02 - 1;
+        }
+    }
+
+.carousel__pullout,
+.carousel__pullout__item {
+    background-color: transparent;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    top: 0;
+    width: 100%;
+    z-index: $z_layer_02;
+    }
+
+.carousel__indicators {
+    @include inline-parent();
+    bottom: auto;
+    left: 0;
+    margin-top: -40px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    z-index: $z_layer_03;
+    }
+
+.carousel__indicators__item {
+    @include inline-child( 1 );
+    @include border-radius($carousel_indicator_size_large);
+    @include transition(background-color $base_transition_duration1 ease);
+    background-color: rgba(0, 0, 0, 0.25);
+    height: $carousel_indicator_size_large;
+    margin: 0 ($carousel_indicator_size_large / 2);
+    width: $carousel_indicator_size_large;
+
+    &.is-active {
+        background-color: rgba(255, 255, 255, 1);
+        }
+    }
+
+.carousel__indicators--standalone {
+    margin-top: 0;
+    padding-top: 40px;
+    position: relative;
+
+    .carousel__indicators__item.is-active {
+        background-color: $color_dark;
+        }
+    }
+
+@media only screen and ( max-width: $break_tablet_medium ) {
+    .carousel__indicators__item {
+        @include border-radius($carousel_indicator_size);
+        height: $carousel_indicator_size;
+        margin: 0 ($carousel_indicator_size - 2);
+        width: $carousel_indicator_size;
+        }
+}
+
+.carousel__indicators__item--large {
+    @include border-radius($carousel_indicator_size_large);
+    height: $carousel_indicator_size_large;
+    margin: 0 $carousel_indicator_size_large;
+    width: $carousel_indicator_size_large;
+    }
+
+.carousel__thumbnails-wrapper {
+    height: 160px;
+    margin-top: 2px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 100%;
+    }
+.carousel__thumbnails {
+    
+    }
+.carousel__thumbnails__item {
+    float: left;
+    position: relative;
+    height: 160px;
+    margin-left: 2px;
+    width: 146px;
+
+    &:first-child {
+        margin-left: 0;
+        }
+    }
+.carousel__thumbnails-wrapper--iteminfo {
+    height: 185px;
+
+    .carousel__thumbnails__item {
+        &:after {
+            color: $color_text_grey;
+            content: "";
+            display: block;
+            height: 25px;
+            font-family: $font_trade_gothic_20;
+            font-size: 10px;
+            left: 0;
+            line-height: 37px;
+            position: absolute;
+            text-align: center;
+            text-transform: uppercase;
+            top: 160px;
+            width: 148px;
+            }
+        &:last-child:after {
+            width: 100%;
+            }
+        &.is-out:after {
+            content: "Out of Stock";
+            }
+        &.is-soon:after {
+            content: "Coming Soon";
+            }
+        }
+    }
+
+.carousel__wayfinding {
+    left: 0;
+    margin-top: -62px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: $z_layer_03;
+    }
+.carousel__wayfinding__item {
+    @include transition(opacity $base_transition_duration1 ease);
+    font-size: 40px;
+    opacity: 0.1;
+    position: absolute;
+
+    &:hover {
+        opacity: 1;
+        }
+
+    &:first-child {
+        left: 0;
+        padding: $base_padding_general
+        }
+    &:last-child {
+        padding: $base_padding_general;
+        right: 0;
+        }
+    }

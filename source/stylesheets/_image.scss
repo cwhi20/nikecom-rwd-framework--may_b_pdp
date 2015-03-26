@@ -1,0 +1,31 @@
+.image {
+    max-width: 100%;
+    width: 100%;
+    }
+.image--inline {
+    max-width: none;
+    width: auto;
+    }
+.image--box {
+    padding-bottom: 100%;
+    position: relative;
+    }
+.image--cinema {
+    padding-bottom: 56.25%;
+    position: relative;
+    }
+.image--box-cutter {
+    padding-bottom: 50%;
+    position: relative;
+    }
+
+.figure {
+    line-height: 0;
+    }
+
+
+@media only screen and ( min-width: ($break_mobile_full + 1px) ) {
+    .image--cinema-big {
+        padding-bottom: 56.25%;
+        }
+}

@@ -1,0 +1,114 @@
+<nav class="navi-mobile navi-mobile--tunnel slide slide--left slide--navi-mobile js-slide-view js-navi js-navi--tunnel js-resize" data-resize="navi-partial">
+    <div class="slide__scroll js-slide-scroll">
+        <!-- General menu -->
+        <div class="navi__home">
+            <%= partial "mobile/partials/navi-header" %>
+            <%= partial "mobile/partials/navi-commons" %>
+        </div>
+    </div>
+</nav>
+
+
+<section class="navi-mobile-slides js-navi-mobile-slides">
+    <!-- Mens / Buckets -->
+    <div class="slide slide--left slide--navi-mobile js-slide-view js-slide--doorway-mens js-resize" data-resize="navi-partial">
+        <div class="slide__scroll js-slide-scroll">
+            <%= partial "mobile/partials/navi-slide-header" %>
+            <div class="button button--p button--grey-dark button--right button--right--small -text--left -border--top padding-top--25 padding-bottom--25 js-slide-controller" data-target=".js-slide--featured-mens">Featured</div>
+            <div class="button button--p button--grey-dark button--right button--right--small -text--left -border--top padding-top--25 padding-bottom--25 js-slide-controller" data-target=".js-slide--shoes-mens">Shoes</div>
+            <div class="button button--p button--grey-dark button--right button--right--small -text--left -border--top padding-top--25 padding-bottom--25 js-slide-controller" data-target=".js-slide--clothing-mens">Clothing</div>
+            <div class="button button--p button--grey-dark button--right button--right--small -text--left -border--top padding-top--25 padding-bottom--25 js-slide-controller" data-target=".js-slide--sport-mens">Explore</div>
+            <div class="-border--bottom"></div>
+        </div>
+    </div>
+
+    <!-- Sport slide -->
+    <div class="slide slide--left slide--navi-mobile js-slide-view js-slide--sport-mens js-resize" data-resize="navi-partial">
+        <div class="slide__scroll js-slide-scroll">
+            <%= partial "mobile/partials/navi-slide-header" %>
+            <a href="#" class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25">Nike Sportswear</a>
+            <% @categories_mens.each do |sport| %>
+            <a href="#" class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25"><%= sport %></a>
+            <% end %>
+        </div>
+    </div>
+
+    <!-- Shoes slide -->
+    <div class="slide slide--left slide--navi-mobile js-slide-view js-slide--shoes-mens js-resize" data-resize="navi-partial">
+        <div class="slide__scroll js-slide-scroll">
+            <%= partial "mobile/partials/navi-slide-header" %>
+            <a href="#" class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25">Lifestyle</a>
+            <% @categories_mens.each do |sport| %>
+            <a href="<% if @taxonomy_links[sport] %><%= @taxonomy_links[sport] %><% else %>#<% end %>" class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25"><%= sport %></a>
+            <% end %>
+        </div>
+    </div>
+
+    <!-- Clothing slide -->
+    <div class="slide slide--left slide--navi-mobile js-slide-view js-slide--clothing-mens js-resize" data-resize="navi-partial">
+        <div class="slide__scroll js-slide-scroll">
+            <%= partial "mobile/partials/navi-slide-header" %>
+            <% @products_mens.each do |product, types| %>
+            <% if product != "Clearance" && product != "Shoes" %>
+                <a href="<% if @taxonomy_links[product] %><%= @taxonomy_links[product] %><% else %>#<% end %>" class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25"><%= product %></a>
+            <% end %>
+            <% end %>
+            <div class="-border--bottom"></div>
+        </div>
+    </div>
+
+    <!-- Collection slide -->
+    <div class="slide slide--left slide--navi-mobile js-slide-view js-slide--collection-mens js-resize" data-resize="navi-partial">
+        <div class="slide__scroll js-slide-scroll">
+            <%= partial "mobile/partials/navi-slide-header" %>
+            <% @collections_global.each do |collection| %>
+            <div class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25"><%= collection %></div>
+            <% end %>
+        </div>
+    </div>
+
+    <!-- Featured slide -->
+    <div class="slide slide--left slide--navi-mobile js-slide-view js-slide--featured-mens js-resize" data-resize="navi-partial">
+        <div class="slide__scroll js-slide-scroll">
+            <%= partial "mobile/partials/navi-slide-header" %>
+            <div class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25">Gift Guide</div>
+            <div class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25">New Releases</div>
+            <div class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25">Launch Calendar</div>
+            <div class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25">Fan Gear</div>
+            <div class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25">Clearance</div>
+            <div class="-border--bottom"></div>
+        </div>
+    </div>
+
+    <!-- Explore: Sports slide -->
+    <div class="slide slide--left slide--navi-mobile js-slide-view js-slide--explore-sports js-resize" data-resize="navi-partial">
+        <div class="slide__scroll js-slide-scroll">
+            <%= partial "mobile/partials/navi-slide-header" %>
+            <% @explore_sports.each do |sport| %>
+            <div class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25"><%= sport %></div>
+            <% end %>
+        </div>
+    </div>
+
+    <!-- Explore: Collections slide -->
+    <div class="slide slide--left slide--navi-mobile js-slide-view js-slide--explore-collections js-resize" data-resize="navi-partial">
+        <div class="slide__scroll js-slide-scroll">
+            <%= partial "mobile/partials/navi-slide-header" %>
+            <% @explore_collections.each do |collection| %>
+            <div class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25"><%= collection %></div>
+            <% end %>
+            <div class="-border--bottom"></div>
+        </div>
+    </div>
+
+    <!-- Explore: Featured slide -->
+    <div class="slide slide--left slide--navi-mobile js-slide-view js-slide--explore-featured js-resize" data-resize="navi-partial">
+        <div class="slide__scroll js-slide-scroll">
+            <%= partial "mobile/partials/navi-slide-header" %>
+            <% @explore_featured.each do |feature| %>
+            <div class="button button--p button--grey-dark -text--left -border--top padding-top--25 padding-bottom--25"><%= feature %></div>
+            <% end %>
+            <div class="-border--bottom"></div>
+        </div>
+    </div>
+</section>

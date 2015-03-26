@@ -1,0 +1,90 @@
+.header {}
+
+.header--full {
+    position: relative;
+    z-index: $z_layer_08;
+    }
+
+.header__main {
+    background-color: $color_white;
+    position: relative;
+    z-index: $z_layer_02;
+
+    &.is-fixed {
+        border-bottom: 1px solid $color_border_grey;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        }
+    }
+
+.header__aside {
+    background-color: $color_white;
+    border-bottom: 1px solid $color_border_grey;
+    }
+
+.header__nav-item {
+    font-size: 16px;
+    position: relative;
+
+    &:after {
+        background-color: transparent;
+        bottom: -1px;
+        content: "";
+        height: 2px;
+        left: 10px;
+        position: absolute;
+        right: 10px;
+        }
+
+    &.is-hover:after {
+        background-color: $color_dark;
+        }
+    }
+
+
+.heading__filters.is-active {
+    margin-top: 26px;
+    }
+
+
+
+// Doorway Header
+.doorway-header {
+    @include transform(translate3d(0, -100%, 0));
+    opacity: 0;
+    background-color: $color_white;
+    left: 0;
+    line-height: 1;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: $z_layer_hidden;
+    -webkit-backface-visibility: hidden;
+
+    &.is-from-right {
+        @include transform(translate3d(100%, 0, 0));
+        }
+    &.is-from-left {
+        @include transform(translate3d(-100%, 0, 0));
+        }
+    &.is-active {
+        @include transition(transform $base_transition_duration1 ease, opacity $base_transition_duration1 ease);
+        @include transform(translate3d(0, 0, 0));
+        opacity: 1;
+        visibility: visible;
+        z-index: ($z_layer_forward + 1);
+        }
+    &.is-leaving {
+        @include transform(translate3d(0, -100%, 0));
+        opacity: 0;
+        }
+    &.is-from-right.is-leaving {
+        @include transform(translate3d(100%, 0, 0));
+        }
+    &.is-from-left.is-leaving {
+        @include transform(translate3d(-100%, 0, 0));
+        }
+    }

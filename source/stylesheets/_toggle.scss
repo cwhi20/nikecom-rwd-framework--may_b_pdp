@@ -1,0 +1,51 @@
+.toggle {}
+
+.toggle__item {
+    cursor: pointer;
+    position: relative;
+    }
+.toggle__item--padded {
+    margin-bottom: 10px;
+    }
+
+.toggle__menu {
+    opacity: 0;
+    @include translate3d(0, 0, 0);
+    background-color: $color_white;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+
+    &.is-auto {
+        height: auto;
+        }
+
+    &.is-animate {
+        @include transition(height $base_transition_duration1 ease, opacity $base_transition_duration1 ease ($base_transition_duration1 / 2));
+        }
+
+    &.is-active {
+        opacity: 1;
+        }
+    }
+
+.toggle__menu--padded {
+    line-height: 1.857;
+    }
+.toggle__menu--products.is-active {
+    margin-top: -5px;
+    }
+
+.toggle__icon {
+    left: -27px;
+    margin-top: -6px;
+    position: absolute;
+    top: 50%;
+    }
+
+.toggle__icon--right {
+    color: #918f8f;
+    left: auto;
+    margin-top: -4px;
+    right: 8px;
+    }

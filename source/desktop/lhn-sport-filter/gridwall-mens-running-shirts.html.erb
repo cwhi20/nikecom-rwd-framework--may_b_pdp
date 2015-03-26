@@ -1,0 +1,14 @@
+---
+title: Men&rsquo;s Running Shirts &amp; Tops // Nike Vision Prototype
+gender: Men&rsquo;s
+model: filter
+product: Shirts &amp; Tops
+category: Running
+---
+<%= partial "partials/data-gridwall" %>
+<%
+@gridwall = @grid_shirts_running.push( @grid_shirts_running[0] )
+@layout = "desktop/partials/gridwall-layout-one"
+@lhn = "desktop/partials/lhn-sport-filter"
+%>
+<%= partial "desktop/partials/gridwall-wrapper" %>

@@ -1,0 +1,60 @@
+---
+title: Men&rsquo;s Running Shoes // Nike Vision Prototype
+gender: Men&rsquo;s
+model: gridwall
+product: Shoes
+category: Running
+section: mobile
+---
+<%= partial "partials/data-gridwall" %>
+<section class="content">
+    <!-- Header -->
+    <section class="padding-top--10 padding-bottom--20 padding-left--30 padding-right--30 -text--center">
+        <div class="h2 margin-bottom--5">
+            <span>Men&rsquo;s</span>
+            <span class="js-active-product">Shoes</span>
+        </div>
+        <div class="p">
+            <span class="js-active-category">Running</span>
+            <span class="count count--total js-active-total"><%= @total_products[@total_id] %></span>
+        </div>
+    </section>
+
+    <%= partial "mobile/partials/gridwall-options" %>
+
+    <!-- Gridwall -->
+    <section class="thumbs bordered__element--half js-gridwall -clear">
+    <%
+    @i = 0
+    @n = 16
+    while @i < @n do
+    %>
+    <% @grid_shoes_running.each do |tile| %>
+        <div class="thumbs__item col--6of12">
+            <img class="image" src="<%= tile["image"] %>" />
+            <div class="thumbs__context">
+                <div class="thumbs__title h6 h6--dark margin-bottom--5"><%= tile["title"] %></div>
+                <div class="p p--detail margin-bottom--5">Men&rsquo;s <%= tile["category"] %> Shoe</div>
+                <div class="p p--detail"><%= tile["price"] %></div>
+            </div>
+        </div>
+    <% end %>
+    <%
+    @i += 1
+    end
+    %>
+    </section>
+
+    <!-- Back2Top -->
+    <ul class="-clear -border--top">
+        <li class="button button--slim col col--6of12 js-loadmore js-spinner -float--left -text--center">
+            <span class="icon icon--plus-sign -font--16"></span>
+        </li>
+        <li class="button button--slim col col--6of12 js-back2top -float--left -text--center">
+            <span class="icon icon--arrow-up -font--10"></span>
+        </li>
+    </ul>
+
+    <%= partial "mobile/partials/gridwall-tools" %>
+</section>
+<%= partial "mobile/partials/navi-tunnel" %>

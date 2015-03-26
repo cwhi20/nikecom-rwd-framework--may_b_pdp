@@ -1,0 +1,262 @@
+<nav class="navi navi--lefty js-navi js-navi--lefty -lineheight--1 -border--bottom -border--dark" <% if current_page.data.category == "All" %>style="padding-top:24px;"<% end %>>
+    <div class="h2 margin-bottom--30 -font--20"><%= current_page.data.gender %></div>
+
+    <!-- Products -->
+    <% if @products %>
+    <section class="margin-bottom--40">
+        <%
+        @products.each do |product, types|
+            @url = get_product_url( product )
+        %>
+        <div class="toggle js-toggle">
+            <a href="<%= @url %>" class="toggle__item toggle__item--padded p p--dark a--block <% if current_page.data.product == product %>is-active -bold<% end %> js-toggle-controller js-toggle-solo js-gridwall-product js-product-type"><%= product %></a>
+            <div class="toggle__menu toggle__menu--padded toggle__menu--products padding-left--10 <% if current_page.data.product == product %>is-active<% end %> js-toggle-menu">
+            <% if @products[product].length > 0 %>
+                <% @products[product].each do |type| %>
+                <div class="p p--dark -btn js-product-type-item"><%= type %></div>
+                <% end %>
+                <div class="padding-top--5"></div>
+            <% end %>
+            </div>
+        </div>
+        <% end %>
+    </section>
+    <% end %>
+
+    <!-- Featured 
+    <section class="margin-bottom--50">
+        <div class="h3 h3--dark margin-bottom--20 -font--20">Featured</div>
+        <% @featured_seasonal.each do |featured| %>
+        <div class="p -btn margin-bottom--10"><%= featured %></div>
+        <% end %>
+    </section>
+    -->
+
+    <section class="">
+        <div class="h3 h3--dark margin-bottom--30 -font--20">Filters</div>
+        <!-- Sport -->
+        <% if @categories %>
+        <section class="padding-top--20 padding-bottom--20 -border--top -border--dark">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller <% if @cats && @cats[0] != "All" %>is-active<% end %>">
+                    <span class="span">Sport</span>
+                    <span class="span margin-left--5 js-toggle-meta <% if @cats && @cats[0] != "All" %>parens -accent<% end %>">
+                        <% if @cats && @cats[0] != "All" %>
+                            <%= @cats.length %>
+                        <% end %>
+                    </span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu <% if @cats && @cats[0] != "All" %>is-active<% end %>"<% if @cats && @cats[0] != "All" %>style="height:auto;"<% end %>>
+                    <div class="padding-top--10"></div>
+                    <%
+                    @categories.each do |sport|
+                        @url = get_sport_url( sport )
+                    %>
+                    <a href="<%= @url %>" class="checkbox p p--dark js-checkbox js-filter-checkbox js-filter-params" for="fSport<%= sport %>">
+                        <input type="checkbox" name="checkSport<%= sport %>" value="<%= sport %>" id="fSport<%= sport %>" class="checkbox__input js-checkbox-input" <% if @cats.include? sport %>checked<% end %> />
+                        <div class="checkbox__label margin-left--10"><%= sport %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+        <% end %>
+
+        <!-- Collections -->
+        <% if @collections %>
+        <section class="padding-top--20 padding-bottom--20 js-filter-set -border--top -border--dark">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller">
+                    <span class="span">Collections</span>
+                    <span class="span margin-left--5 js-toggle-meta"></span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu">
+                    <div class="padding-top--10"></div>
+                    <% @collections.each do |collection| %>
+                    <a href="#" class="checkbox p p--dark js-checkbox js-filter-checkbox" data-value="<%= collection.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>" data-key="collection" for="fCollection<%= collection %>">
+                        <input type="checkbox" name="checkCollection<%= collection %>" value="<%= collection %>" id="fCollection<%= collection %>" class="checkbox__input js-checkbox-input" />
+                        <div class="checkbox__label margin-left--10"><%= collection %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+        <% end %>
+
+        <!-- Best For -->
+        <% if current_page.data.product != "All" && @bestfor %>
+        <section class="padding-top--20 padding-bottom--20 js-filter-set -border--top -border--dark">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller">
+                    <span class="span">Best For</span>
+                    <span class="span margin-left--5 js-toggle-meta"></span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu">
+                    <div class="padding-top--10"></div>
+                    <% @bestfor.each do |best| %>
+                    <a href="#" class="checkbox p p--dark js-checkbox js-filter-checkbox" data-value="<%= best.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>" data-key="besfor" for="fBestFor<%= best %>">
+                        <input type="checkbox" name="checkBestFor<%= best %>" value="<%= best %>" id="fBestFor<%= best %>" class="checkbox__input js-checkbox-input" />
+                        <div class="checkbox__label margin-left--10"><%= best %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+        <% end %>
+
+        <!-- Occasion -->
+        <% if @occasion %>
+        <section class="padding-top--20 padding-bottom--20 js-filter-set -border--top -border--dark">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller">
+                    <span class="span">Occasion</span>
+                    <span class="span margin-left--5 js-toggle-meta"></span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu">
+                    <div class="padding-top--10"></div>
+                    <% @occasion.each do |occasion| %>
+                    <a href="#" class="checkbox p p--dark js-checkbox js-filter-checkbox" data-value="<%= occasion.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>" data-key="occasion" for="fOccasion<%= occasion %>">
+                        <input type="checkbox" name="checkOccasion<%= occasion %>" value="<%= occasion %>" id="fOccasion<%= occasion %>" class="checkbox__input js-checkbox-input" />
+                        <div class="checkbox__label margin-left--10"><%= occasion %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+        <% end %>
+
+        <!-- Fit -->
+        <% if @fit %>
+        <section class="padding-top--20 padding-bottom--20 js-filter-set -border--top -border--dark">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller">
+                    <span class="span">Fit</span>
+                    <span class="span margin-left--5 js-toggle-meta"></span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu">
+                    <div class="padding-top--10"></div>
+                    <% @fit.each do |fit| %>
+                    <a href="#" class="checkbox p p--dark js-checkbox js-filter-checkbox" data-value="<%= fit.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>" data-key="fit" for="fFit<%= fit %>">
+                        <input type="checkbox" name="checkFit<%= fit %>" value="<%= fit %>" id="fFit<%= fit %>" class="checkbox__input js-checkbox-input" />
+                        <div class="checkbox__label margin-left--10"><%= fit %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+        <% end %>
+
+        <!-- Surface -->
+        <% if @surface %>
+        <section class="padding-top--20 padding-bottom--20 js-filter-set -border--top -border--dark">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller">
+                    <span class="span">Surface</span>
+                    <span class="span margin-left--5 js-toggle-meta"></span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu">
+                    <div class="padding-top--10"></div>
+                    <% @surface.each do |surface| %>
+                    <a href="#" class="checkbox p p--dark js-checkbox js-filter-checkbox" data-value="<%= surface.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>" data-key="surface" for="fSurface<%= surface %>">
+                        <input type="checkbox" name="checkSurface<%= surface %>" value="<%= surface %>" id="fSurface<%= surface %>" class="checkbox__input js-checkbox-input" />
+                        <div class="checkbox__label margin-left--10"><%= surface %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+        <% end %>
+
+        <!-- League -->
+        <% if @league %>
+        <section class="padding-top--20 padding-bottom--20 is-hidden js-filter-set js-filter-set--hidden -border--top -border--dark" data-key="occasion" data-value="Fan-Gear">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller">
+                    <span class="span">League</span>
+                    <span class="span margin-left--5 js-toggle-meta"></span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu">
+                    <div class="padding-top--10"></div>
+                    <% @league.each do |league| %>
+                    <a href="#" class="checkbox p p--dark js-checkbox js-filter-checkbox" data-value="<%= league.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>" data-key="league" for="fLeague<%= league %>">
+                        <input type="checkbox" name="checkLeague<%= league %>" value="<%= league %>" id="fLeague<%= league %>" class="checkbox__input js-checkbox-input" />
+                        <div class="checkbox__label margin-left--10"><%= league %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+        <% end %>
+
+        <!-- Team -->
+        <% if @team %>
+        <section class="padding-top--20 padding-bottom--20 is-hidden js-filter-set js-filter-set--hidden -border--top -border--dark" data-key="occasion" data-value="Fan-Gear">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller">
+                    <span class="span">Team</span>
+                    <span class="span margin-left--5 js-toggle-meta"></span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu">
+                    <div class="padding-top--10"></div>
+                    <% @team.each do |team| %>
+                    <a href="#" class="checkbox p p--dark js-checkbox js-filter-checkbox" data-value="<%= team.gsub( "&amp;", "" ).gsub( /\s\s|\s/, "-" ) %>" data-key="team" for="fTeam<%= team %>">
+                        <input type="checkbox" name="checkTeam<%= team %>" value="<%= team %>" id="fTeam<%= team %>" class="checkbox__input js-checkbox-input" />
+                        <div class="checkbox__label margin-left--10"><%= team %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+        <% end %>
+
+        <!-- Size -->
+        <% if current_page.data.product != "All" %>
+        <section class="padding-top--20 padding-bottom--20 js-filter-set -border--top -border--dark">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller">
+                    <span class="span">Size</span>
+                    <span class="span margin-left--5 js-toggle-meta"></span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu -clear">
+                    <div class="padding-top--10"></div>
+                    <% @sizes.each do |size| %>
+                    <a href="#" class="col col--2of4 checkbox p p--dark js-checkbox js-filter-checkbox" data-value="<%= size %>" data-key="size" for="fSize<%= size %>">
+                        <input type="checkbox" name="checkSize<%= size %>" value="<%= size %>" id="fSize<%= size %>" class="checkbox__input js-checkbox-input" />
+                        <div class="checkbox__label margin-left--10"><%= size %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+        <% end %>
+
+        <!-- Color -->
+        <section class="padding-top--20 padding-bottom--20 js-filter-set -border--top -border--dark">
+            <div class="toggle js-toggle">
+                <div class="toggle__item p p--dark js-toggle-controller">
+                    <span class="span">Color</span>
+                    <span class="span margin-left--5 js-toggle-meta"></span>
+                    <span class="toggle__icon toggle__icon--right span icon icon--plus-sign js-toggle-icon -font--10"></span>
+                </div>
+                <div class="toggle__menu toggle__menu--padded is-auto js-toggle-menu">
+                    <div class="padding-top--10"></div>
+                    <% @colors.each do |color| %>
+                    <a href="#" class="checkbox p p--dark js-checkbox js-filter-checkbox" data-value="<%= color %>" data-key="color" for="fColor<%= color %>">
+                        <input type="checkbox" name="checkColor<%= color %>" value="<%= color %>" id="fColor<%= color %>" class="checkbox__input js-checkbox-input" />
+                        <div class="checkbox__label margin-left--10"><%= color %></div>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+        </section>
+    </section>
+</nav>

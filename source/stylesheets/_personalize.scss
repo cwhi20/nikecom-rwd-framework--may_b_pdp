@@ -1,0 +1,48 @@
+.personalize {}
+.personalize__left,
+.personalize__right {
+    color: $color_white;
+    font-style: italic;
+    height: 4%;
+    text-align: center;
+    width: 9%;
+    }
+.personalize__left {
+    left: 28%;
+    top: 36%;
+    }
+.personalize__right {
+    left: 62%;
+    top: 36%;
+    }
+.personalize__left-only,
+.personalize__right-only {
+    color: $color_white;
+    font-size: 18px;
+    font-style: italic;
+    height: 13%;
+    text-align: center;
+    width: 22%;
+    }
+.personalize__left-only {
+    left: 40%;
+    top: 44%;
+    }
+.personalize__right-only {
+    left: 38%;
+    top: 44%;
+    }
+.personalize__left-image,
+.personalize__right-image {
+    opacity: 0;
+    @include transition(opacity $base_transition_duration1 ease);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &.is-active {
+        opacity: 1;
+        }
+    }

@@ -1,0 +1,310 @@
+// lazy loading states
+.-is-lazy-loading {
+    opacity: 0;
+    }
+.-is-lazy-transition {
+    @include transition(opacity $base_transition_duration3 ease);
+    }
+.-is-lazy-loaded {
+    opacity: 1;
+    }
+.-is-lazy-handled {}
+
+
+// arrows
+.-arrow {
+    cursor: pointer;
+    position: relative;
+    }
+.-arrow:before {
+    @include icon-layout();
+    color: inherit;
+    font-size: 5px;
+    font-weight: bold;
+    margin-top: -2px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    }
+.-arrow--up:before {
+    content: $code_arrow_up;
+    }
+.-arrow--right:before {
+    content: $code_arrow_right;
+    }
+.-arrow--down:before {
+    content: $code_arrow_down;
+    }
+
+
+// stretch
+.-fullscreen {
+    height: 100%;
+    width: 100%;
+    }
+
+
+// positioning
+.-position--absolute {
+    position: absolute;
+    }
+.-position--fixed {
+    position: fixed;
+    }
+.-position--relative {
+    position: relative;
+    }
+
+
+// document clipping
+.-contain {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    }
+
+
+// floating
+.-float--right {
+    float: right;
+    }
+.-float--left {
+    float: left;
+    }
+.-clear:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    }
+
+// vertical alignment
+.-vertical--top {
+    vertical-align: top;
+    }
+.-vertical--middle {
+    vertical-align: middle;
+    }
+.-vertical--bottom {
+    vertical-align: bottom;
+    }
+
+
+// text alignment
+.-text--center {
+    text-align: center;
+    }
+.-text--right {
+    text-align: right;
+    }
+.-text--left {
+    text-align: left;
+    }
+
+
+// background-size
+.-cover {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    @include background-size(cover);
+    }
+.-cover--top {
+    background-position: 50% 0;
+    }
+.-cover--right {
+    background-position: 100% 50%;
+    }
+.-cover--bottom {
+    background-position: 50% 100%;
+    }
+.-cover--left {
+    background-position: 0 50%;
+    }
+
+
+// borders
+.-border {
+    border: 1px solid $color_border_grey;
+    }
+.-border--top {
+    border-top: 1px solid $color_border_grey;
+    }
+.-border--right {
+    border-right: 1px solid $color_border_grey;
+    }
+.-border--bottom {
+    border-bottom: 1px solid $color_border_grey;
+    }
+.-border--left {
+    border-left: 1px solid $color_border_grey;
+    }
+.-border--dark {
+    border-color: $color_border_dark;
+    }
+.-border--ondark {
+    border-color: $color_border_grey_dark;
+    }
+.-border--error {
+    border-color: $color_error;
+    }
+
+.-border-no {
+    border: 0;
+    }
+.-border-no--top {
+    border-top: 0;
+    }
+.-border-no--right {
+    border-right: 0;
+    }
+.-border-no--bottom {
+    border-bottom: 0;
+    }
+.-border-no--left {
+    border-left: 0;
+    }
+
+.-border-radius {
+    @include border-radius($base_border_radius);
+    }
+
+
+// font-size
+@each $font_size in $font_sizes {
+    .-font--#{$font_size} {
+        font-size: ($font_size + px);
+        }
+}
+
+
+.-error {
+    color: $color_error;
+    }
+.-underline {
+    text-decoration: underline;
+    }
+.-lowercase {
+    text-transform: lowercase;
+    }
+.-uppercase {
+    text-transform: uppercase;
+    }
+.-trade {
+    font-family: $font_trade_gothic_20;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    }
+.-futura {
+    font-family: $font_futura_bold_cond;
+    }
+.-italic {
+    font-style: italic;
+    }
+.-bold {
+    font-weight: bold;
+    }
+.-accent {
+    color: $color_accent;
+    }
+.-light {
+    color: $color_white;
+    }
+.-dark {
+    color: $color_dark;
+    }
+.-grey-light {
+    color: $color_text_grey_light;
+    }
+.-grey-middle {
+    color: $color_middle_grey;
+    }
+
+
+@media only screen and ( max-width: $break_tablet_medium ) {
+    .-grey--small {
+        color: $color_text_grey;
+        }
+    .-dark--small {
+        color: $color_dark;
+        }
+}
+
+
+.-bg {}
+.-bg--grey,
+.-bg--grey2 {
+    background-color: $color_background_grey;
+    }
+.-bg--grey-light {
+    background-color: $color_background_grey_light;
+    }
+.-bg--dark {
+    background-color: $color_dark;
+    }
+.-bg--black {
+    background-color: $color_black;
+    }
+
+
+.-lineheight--2 {
+    line-height: 2;
+    }
+.-lineheight--1 {
+    line-height: 1;
+    }
+.-lineheight--0 {
+    line-height: 0;
+    }
+.-lineheight--reset {
+    line-height: $base_line_height;
+    }
+.-lineheight--open {
+    line-height: $base_line_height_open;
+    }
+
+
+.-letterspace--1 {
+    letter-spacing: 1px;
+    }
+
+
+.-overtouch {
+    -webkit-overflow-scrolling: touch;
+    }
+.-overscroll {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    }
+.-overhidden {
+    height: 100%;
+    overflow: hidden;
+    }
+
+
+.-close {}
+.-close:before {
+    @include icon-layout();
+    color: $color_dark;
+    content: $code_close;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: -7px;
+    position: absolute;
+    top: 50%;
+    }
+.-close--light:before {
+    color: $color_white;
+    }
+.-close--left:before {
+    left: $base_padding_general;
+    }
+.-close--right:before {
+    right: $base_padding_general;
+    }
+
+
+.-btn {
+    cursor: pointer;
+    }

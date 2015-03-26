@@ -1,0 +1,85 @@
+<div class="modal js-modal-view js-modal--personalize">
+    <div class="modal__scroll js-modal-scroll">
+        <div class="h3 h3--dark padding--30 js-modal-close -position--relative -text--center -close -close--right">
+            <span>Personalize</span> <span class="parens">$20</span>
+        </div>
+        <section class="personalize js-personalize">
+            <section class="figure -position--relative">
+                <div class="personalize__both-image">
+                    <img class="image" src="../images/personalize/elite.jpg" />
+                    <div class="personalize__left -position--absolute -font--8 -trade">
+                        <div class="valigner">
+                            <div class="valigner__cell js-personalize-left"></div>
+                        </div>
+                    </div>
+                    <div class="personalize__right -position--absolute -font--8 -trade">
+                        <div class="valigner">
+                            <div class="valigner__cell js-personalize-right"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personalize__left-image js-personalize-image js-personalize-left-image">
+                    <img class="image" src="../images/personalize/elite-zoomed-left.jpg" />
+                    <div class="personalize__left-only -position--absolute -trade">
+                        <div class="valigner">
+                            <div class="valigner__cell js-personalize-left"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personalize__right-image js-personalize-image js-personalize-right-image">
+                    <img class="image" src="../images/personalize/elite-zoomed-right.jpg" />
+                    <div class="personalize__right-only -position--absolute -trade">
+                        <div class="valigner">
+                            <div class="valigner__cell js-personalize-right"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="padding--30 -border--bottom">
+                <div class="h3 h3--dark margin-bottom--30">Customize Tongue iD</div>
+                <form class="form">
+                    <div class="margin-bottom--5 -clear">
+                        <div class="col col--2of4">
+                            <div class="p p--dark p--detail">Left Tongue</div>
+                        </div>
+                        <div class="col col--2of4 -text--right">
+                            <div class="p p--detail is-hidden js-rules-left">6 characters max</div>
+                        </div>
+                    </div>
+                    <div class="margin-bottom--40 -position--relative">
+                        <input class="input input--trade js-personalize-input" placeholder="Your iD" data-target=".js-personalize-left" data-rules=".js-rules-left" type="text" maxlength="6" />
+                    </div>
+                    <div class="margin-bottom--5 -clear">
+                        <div class="col col--2of4">
+                            <div class="p p--dark p--detail">Right Tongue</div>
+                        </div>
+                        <div class="col col--2of4 -text--right">
+                            <div class="p p--detail is-hidden js-rules-right">6 characters max</div>
+                        </div>
+                    </div>
+                    <div class="margin-bottom--40 -position--relative">
+                        <input class="input input--trade js-personalize-input" placeholder="Your iD" data-target=".js-personalize-right" data-rules=".js-rules-right" type="text" maxlength="6" />
+                    </div>
+                </form>
+            </section>
+        </section>
+        <div class="button js-modal-close">Save</div>
+    </div>
+</div>
+
+
+<div class="alert js-alert js-alert--guidelines">
+    <div class="valigner">
+        <div class="valigner__cell">
+            <div class="alert__box">
+                <div class="padding--40">
+                    <div class="h3 h3--dark margin-bottom--20 -text--center">Guidelines</div>
+                    <div class="p p--detail">Each tongue can have up to 6 characters. IDs can be numerical and upper case with .,:;()?!#</div>
+                </div>
+                <div class="button button--light-dark -border--top js-alert-close">Ok</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="js-personalize-alert js-alert-controller" data-target=".js-alert--guidelines"></div>
